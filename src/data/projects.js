@@ -5,6 +5,33 @@
 // À FAIRE : remplacer les images par de vraies captures d'écran dans public/images/projets/.
 export const projects = [
   {
+    id: "certificats-etat-civil",
+    nom: "Gestion des certificats administratifs",
+    image: "/images/projets/certificats-etat-civil.webp",
+    probleme:
+      "La Mairie de Port-Bouët délivre plusieurs types de certificats administratifs et doit suivre chaque demande, de la saisie à la délivrance.",
+    objectifs: [
+      "Centraliser les demandes de certificats dans un seul logiciel",
+      "Produire des certificats PDF fiables et vérifiables",
+      "Suivre l'activité des agents et du service",
+    ],
+    fonctionnalites: [
+      "Sept types de certificats : vie, vie mineur, entretien, non-remariage, non-divorce et non-séparation de corps…",
+      "Gestion des demandeurs et des enfants mineurs rattachés",
+      "Génération des certificats en PDF avec QR code d'authentification",
+      "Suivi du statut des demandes, recherche, modification et reconduction",
+      "Statistiques globales et par agent, listes et exports",
+      "Comptes agents avec rôles, changement et réinitialisation du mot de passe",
+    ],
+    technologies: ["PHP (POO)", "MySQL", "TCPDF", "PHP QR Code", "Bootstrap", "Chart.js", "jQuery"],
+    role: "Conception et développement complet",
+    statut: "en cours",
+    demo: null,
+    github: null, // Dépôt AUTRES-CERTICATIONS à nettoyer (base de données) avant de le relier
+    vedette: true,
+    afficher: true,
+  },
+  {
     id: "certificat-residence",
     nom: "Gestion des certificats de résidence",
     image: "/images/projets/certificat-residence.webp",
@@ -26,7 +53,7 @@ export const projects = [
     role: "Conception et développement complet",
     statut: "en cours",
     demo: null,
-    github: "https://github.com/KOUAKOU-FRANCK/CERTICAT-DE-RESIDENCE",
+    github: null, // Dépôt à nettoyer (base de données) avant de le relier
     vedette: true,
     afficher: true,
   },
