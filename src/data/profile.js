@@ -5,8 +5,8 @@ export const profile = {
   titre: "Technicien supérieur en informatique & photographe événementiel",
   introduction:
     "Technicien supérieur en informatique et développeur d'applications, je conçois des solutions numériques, accompagne les utilisateurs et réalise des photographies pour immortaliser les moments importants.",
-  portrait: "/images/portrait.svg", // À FAIRE : remplacer par public/images/portrait.jpg
-  cv: "/cv.pdf", // À FAIRE : ajouter public/cv.pdf (sans adresse ni date de naissance)
+  portrait: "/images/portrait.jpg",
+  cv: "/cv.pdf",
 
   email: "kkfranck000@gmail.com",
   whatsapp: "2250759751470", // format international sans + ni espaces

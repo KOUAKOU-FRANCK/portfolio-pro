@@ -26,15 +26,15 @@ Tous les contenus se modifient dans `src/data/`, sans toucher aux composants.
 ## Contenus à compléter avant la mise en ligne
 
 - [x] `src/data/profile.js` : e-mail, numéro WhatsApp, LinkedIn
-- [ ] `public/cv.pdf` : CV à jour (sans adresse ni date de naissance)
-- [ ] `public/images/portrait.jpg`, puis mettre à jour `profile.portrait`
+- [x] `public/cv.pdf` : CV à jour (sans adresse ni date de naissance)
+- [x] `public/images/portrait.jpg`
 - [ ] `src/data/skills.js` : niveau réel de chaque compétence (« Maîtrisé », « Utilisé en projet », « Notions »)
 - [ ] `src/data/projects.js` : fiches des projets, captures dans `public/images/projets/`, statut exact
 - [ ] `src/data/photos.js` : vos photos (WebP, 1600 px max, < 300 Ko) et miniatures (~600 px), prestations, zone, délais
-- [ ] `src/pages/Apropos.jsx` : parcours réel (expériences, formation)
+- [x] `src/pages/Apropos.jsx` : parcours réel (expériences, formation, certifications)
 - [ ] `src/pages/Photographie.jsx` : texte de présentation de l'activité photo
 - [x] `index.html` : adresse publique https://franck-kouakou.vercel.app et image de partage `public/images/partage.png`
-- [ ] Supprimer les images d'exemple (`exemple-*.svg`, `portrait.svg`)
+- [ ] Supprimer les images d'exemple (`exemple-*.svg`)
 
 ## Déploiement sur Vercel
 
