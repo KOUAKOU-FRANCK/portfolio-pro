@@ -7,7 +7,7 @@ export const projects = [
   {
     id: "certificat-residence",
     nom: "Gestion des certificats de résidence",
-    image: "/images/projets/exemple.svg",
+    image: "/images/projets/certificat-residence.webp",
     probleme:
       "La Mairie de Port-Bouët délivre des certificats de résidence et doit pouvoir les établir rapidement, les retrouver et suivre l'activité du service.",
     objectifs: [
