@@ -30,10 +30,27 @@ const parcours = [
 ];
 
 const certifications = [
-  "Certification CSCU (Certified Secure Computer User)",
-  "Certification en Claude IA",
-  "Formation en cybersécurité et sécurité informatique",
-  "Formations complémentaires en développement web et technologies numériques",
+  {
+    nom: "Claude Code in action",
+    organisme: "Anthropic — Claude Academy",
+    date: "Octobre 2026",
+    identifiant: "d9f268626454018aa4fb00f27ed07a0c",
+  },
+  {
+    nom: "Claude Platform 101",
+    organisme: "Anthropic — Claude Academy",
+    date: "Octobre 2026",
+    identifiant: "1af1439c37061fff1cdc35ef76390faa",
+  },
+  {
+    nom: "Introduction to Claude Tag",
+    organisme: "Anthropic — Claude Academy",
+    date: "Octobre 2026",
+    identifiant: "93a693b3a64bfb3695f6981c7d2059de",
+  },
+  { nom: "CSCU — Certified Secure Computer User" },
+  { nom: "Formation en cybersécurité et sécurité informatique" },
+  { nom: "Formations complémentaires en développement web et technologies numériques" },
 ];
 
 export default function Apropos() {
@@ -111,7 +128,17 @@ export default function Apropos() {
         <div className="container">
           <h2>Certifications et formations</h2>
           <ul className="cert-list">
-            {certifications.map((c) => <li key={c}>{c}</li>)}
+            {certifications.map((c) => (
+              <li key={c.nom}>
+                <p className="cert-list__nom">{c.nom}</p>
+                {c.organisme && (
+                  <p className="muted">
+                    {c.organisme} · {c.date}
+                  </p>
+                )}
+                {c.identifiant && <p className="cert-list__id">Identifiant : {c.identifiant}</p>}
+              </li>
+            ))}
           </ul>
           <p className="section__more">
             <Link to="/informatique">Voir le détail de mes compétences →</Link>
