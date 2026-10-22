@@ -33,7 +33,7 @@ Tous les contenus se modifient dans `src/data/`, sans toucher aux composants.
 - [ ] `src/data/photos.js` : vos photos (WebP, 1600 px max, < 300 Ko) et miniatures (~600 px), prestations, zone, délais
 - [ ] `src/pages/Apropos.jsx` : parcours réel (expériences, formation)
 - [ ] `src/pages/Photographie.jsx` : texte de présentation de l'activité photo
-- [ ] `index.html` : adresse Vercel définitive et image de partage `public/images/partage.jpg` (1200×630)
+- [x] `index.html` : adresse publique https://franck-kouakou.vercel.app et image de partage `public/images/partage.png`
 - [ ] Supprimer les images d'exemple (`exemple-*.svg`, `portrait.svg`)
 
 ## Déploiement sur Vercel
