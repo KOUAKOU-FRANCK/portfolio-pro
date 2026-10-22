@@ -29,7 +29,7 @@ Tous les contenus se modifient dans `src/data/`, sans toucher aux composants.
 - [x] `public/cv.pdf` : CV à jour (sans adresse ni date de naissance)
 - [x] `public/images/portrait.jpg`
 - [ ] `src/data/skills.js` : niveau réel de chaque compétence (« Maîtrisé », « Utilisé en projet », « Notions »)
-- [ ] `src/data/projects.js` : fiches des projets, captures dans `public/images/projets/`, statut exact
+- [ ] `src/data/projects.js` : fiches rédigées ; reste à ajouter les captures dans `public/images/projets/` et confirmer les statuts
 - [ ] `src/data/photos.js` : vos photos (WebP, 1600 px max, < 300 Ko) et miniatures (~600 px), prestations, zone, délais
 - [x] `src/pages/Apropos.jsx` : parcours réel (expériences, formation, certifications)
 - [ ] `src/pages/Photographie.jsx` : texte de présentation de l'activité photo
