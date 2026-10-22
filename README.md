@@ -25,7 +25,7 @@ Tous les contenus se modifient dans `src/data/`, sans toucher aux composants.
 
 ## Contenus à compléter avant la mise en ligne
 
-- [ ] `src/data/profile.js` : e-mail, numéro WhatsApp, LinkedIn
+- [x] `src/data/profile.js` : e-mail, numéro WhatsApp, LinkedIn
 - [ ] `public/cv.pdf` : CV à jour (sans adresse ni date de naissance)
 - [ ] `public/images/portrait.jpg`, puis mettre à jour `profile.portrait`
 - [ ] `src/data/skills.js` : niveau réel de chaque compétence (« Maîtrisé », « Utilisé en projet », « Notions »)

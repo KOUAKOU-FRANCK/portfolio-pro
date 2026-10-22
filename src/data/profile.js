@@ -8,9 +8,9 @@ export const profile = {
   portrait: "/images/portrait.svg", // À FAIRE : remplacer par public/images/portrait.jpg
   cv: "/cv.pdf", // À FAIRE : ajouter public/cv.pdf (sans adresse ni date de naissance)
 
-  email: "", // À FAIRE : adresse e-mail professionnelle
-  whatsapp: "", // À FAIRE : numéro au format international sans + ni espaces, ex. 2250700000000
-  linkedin: "", // À FAIRE : URL du profil LinkedIn, si disponible
+  email: "kkfranck000@gmail.com",
+  whatsapp: "2250759751470", // format international sans + ni espaces
+  linkedin: "https://www.linkedin.com/in/franck-kouakou-741382256/",
   github: "https://github.com/KOUAKOU-FRANCK",
 };
 
