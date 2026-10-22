@@ -1,5 +1,6 @@
 // Galerie photographique.
-// À FAIRE : remplacer les images d'exemple par vos photos (format WebP, 1600 px max, < 300 Ko)
+// Photos en WebP (1600 px max) avec miniature de 600 px (-mini.webp).
+// À FAIRE : remplacer les images d'exemple restantes par vos photos (format WebP, 1600 px max, < 300 Ko)
 // et leurs miniatures (environ 600 px) dans public/images/photos/.
 export const categories = [
   "Mariages",
@@ -21,9 +22,21 @@ const exemple = (fichier, categorie, n) => ({
   vedette: n === 1,
 });
 
+const photo = (id, categorie, alt, largeur, hauteur, vedette = false) => ({
+  id,
+  src: `/images/photos/${id}.webp`,
+  miniature: `/images/photos/${id}-mini.webp`,
+  alt,
+  categorie,
+  largeur,
+  hauteur,
+  vedette,
+});
+
 export const photos = [
-  exemple("mariages", "Mariages", 1),
-  exemple("mariages", "Mariages", 2),
+  photo("mariage-1", "Mariages", "Les mariés posent en riant contre un cocotier, la mariée tient son bouquet", 1600, 1067, true),
+  photo("mariage-2", "Mariages", "La mariée en tailleur blanc et chapeau à voilette tient son bouquet sous les cocotiers", 1600, 1067, true),
+  photo("mariage-3", "Mariages", "Portrait rapproché de la mariée souriante derrière sa voilette", 1600, 1159, true),
   exemple("anniversaires", "Anniversaires", 1),
   exemple("anniversaires", "Anniversaires", 2),
   exemple("ceremonies", "Cérémonies", 1),
