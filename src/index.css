@@ -502,6 +502,9 @@ ul { padding-left: 1.2rem; }
 @media (min-width: 700px) {
   .cert-list { grid-template-columns: repeat(2, 1fr); }
 }
+@media (min-width: 1000px) {
+  .cert-list { grid-template-columns: repeat(3, 1fr); }
+}
 .cert-list li {
   padding: 1rem 1.25rem;
   border: 1px solid var(--gris-bordure);
@@ -511,4 +514,5 @@ ul { padding-left: 1.2rem; }
 }
 .cert-list li p { margin: 0; }
 .cert-list__nom { font-weight: 600; color: var(--bleu-nuit); }
-.cert-list__id { font-size: 0.8rem; color: var(--texte-doux); overflow-wrap: anywhere; margin-top: 0.25rem !important; }
+.cert-list__badge { width: 100%; height: auto; border-radius: 6px; margin-bottom: 0.75rem; }
+.cert-list__lien { display: inline-block; margin-top: 0.5rem; font-weight: 600; font-size: 0.9rem; }

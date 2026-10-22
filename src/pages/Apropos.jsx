@@ -29,24 +29,41 @@ const parcours = [
   },
 ];
 
+const verifier = (id) => `https://academy.claude.com/verify/${id}`;
+
 const certifications = [
   {
-    nom: "Claude Code in action",
+    nom: "Claude 101",
     organisme: "Anthropic — Claude Academy",
-    date: "Octobre 2026",
-    identifiant: "d9f268626454018aa4fb00f27ed07a0c",
+    date: "5 octobre 2026",
+    image: "/images/certifications/claude-101.jpg",
+    lien: verifier("89293452236060b11fb1b61e5c9a8867"),
+  },
+  {
+    nom: "Claude Code 101",
+    organisme: "Anthropic — Claude Academy",
+    date: "6 octobre 2026",
+    image: "/images/certifications/claude-code-101.jpg",
+    lien: verifier("24f8c806f55272974143332719488693"),
   },
   {
     nom: "Claude Platform 101",
     organisme: "Anthropic — Claude Academy",
+    date: "9 octobre 2026",
+    image: "/images/certifications/claude-platform-101.jpg",
+    lien: verifier("1af1439c37061fff1cdc35ef76390faa"),
+  },
+  {
+    nom: "Claude Code in action",
+    organisme: "Anthropic — Claude Academy",
     date: "Octobre 2026",
-    identifiant: "1af1439c37061fff1cdc35ef76390faa",
+    lien: verifier("d9f268626454018aa4fb00f27ed07a0c"),
   },
   {
     nom: "Introduction to Claude Tag",
     organisme: "Anthropic — Claude Academy",
     date: "Octobre 2026",
-    identifiant: "93a693b3a64bfb3695f6981c7d2059de",
+    lien: verifier("93a693b3a64bfb3695f6981c7d2059de"),
   },
   { nom: "CSCU — Certified Secure Computer User" },
   { nom: "Formation en cybersécurité et sécurité informatique" },
@@ -129,14 +146,28 @@ export default function Apropos() {
           <h2>Certifications et formations</h2>
           <ul className="cert-list">
             {certifications.map((c) => (
-              <li key={c.nom}>
+              <li key={c.nom} className={c.image ? "cert-list__item--badge" : undefined}>
+                {c.image && (
+                  <img
+                    className="cert-list__badge"
+                    src={c.image}
+                    alt={`Badge ${c.nom} délivré par Anthropic`}
+                    width="640"
+                    height="438"
+                    loading="lazy"
+                  />
+                )}
                 <p className="cert-list__nom">{c.nom}</p>
                 {c.organisme && (
                   <p className="muted">
                     {c.organisme} · {c.date}
                   </p>
                 )}
-                {c.identifiant && <p className="cert-list__id">Identifiant : {c.identifiant}</p>}
+                {c.lien && (
+                  <a className="cert-list__lien" href={c.lien} target="_blank" rel="noopener noreferrer">
+                    Vérifier la certification ↗
+                  </a>
+                )}
               </li>
             ))}
           </ul>
