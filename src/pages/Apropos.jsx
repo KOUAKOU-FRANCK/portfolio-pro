@@ -47,6 +47,20 @@ const certifications = [
     lien: verifier("24f8c806f55272974143332719488693"),
   },
   {
+    nom: "Introduction to Claude Cowork",
+    organisme: "Anthropic — Claude Academy",
+    date: "7 octobre 2026",
+    image: "/images/certifications/introduction-to-claude-cowork.jpg",
+    lien: verifier("61f6f97547ba9d9dfd5a22a63b5d4401"),
+  },
+  {
+    nom: "Introduction to Claude Tag",
+    organisme: "Anthropic — Claude Academy",
+    date: "8 octobre 2026",
+    image: "/images/certifications/introduction-to-claude-tag.jpg",
+    lien: verifier("93a693b3a64bfb3695f6981c7d2059de"),
+  },
+  {
     nom: "Claude Platform 101",
     organisme: "Anthropic — Claude Academy",
     date: "9 octobre 2026",
@@ -58,12 +72,6 @@ const certifications = [
     organisme: "Anthropic — Claude Academy",
     date: "Octobre 2026",
     lien: verifier("d9f268626454018aa4fb00f27ed07a0c"),
-  },
-  {
-    nom: "Introduction to Claude Tag",
-    organisme: "Anthropic — Claude Academy",
-    date: "Octobre 2026",
-    lien: verifier("93a693b3a64bfb3695f6981c7d2059de"),
   },
   { nom: "CSCU — Certified Secure Computer User" },
   { nom: "Formation en cybersécurité et sécurité informatique" },
