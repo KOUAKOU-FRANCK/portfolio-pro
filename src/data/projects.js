@@ -1,0 +1,68 @@
+// Projets informatiques.
+// statut : "terminé" | "en cours" | "prototype". Ne jamais marquer "terminé" un projet en développement.
+// afficher : false masque le projet tant que sa fiche n'est pas complète.
+// demo / github : null si non disponible (le bouton n'est alors pas affiché).
+export const projects = [
+  {
+    id: "finarchive",
+    nom: "FINARCHIVE",
+    image: "/images/projets/exemple.svg",
+    probleme: "À compléter : quel problème ce projet résout-il ?",
+    objectifs: ["À compléter"],
+    fonctionnalites: ["À compléter"],
+    technologies: ["À compléter"],
+    role: "À compléter",
+    statut: "en cours",
+    demo: null,
+    github: "https://github.com/KOUAKOU-FRANCK/FINARCHIVE",
+    vedette: true,
+    afficher: true,
+  },
+  {
+    id: "ma-mutuelle",
+    nom: "Ma Mutuelle",
+    image: "/images/projets/exemple.svg",
+    probleme: "À compléter",
+    objectifs: ["À compléter"],
+    fonctionnalites: ["À compléter"],
+    technologies: ["À compléter"],
+    role: "À compléter",
+    statut: "en cours",
+    demo: null,
+    github: "https://github.com/KOUAKOU-FRANCK/APP-Ma-Mutuelle",
+    vedette: true,
+    afficher: true,
+  },
+  {
+    id: "resto",
+    nom: "Resto",
+    image: "/images/projets/exemple.svg",
+    probleme: "À compléter",
+    objectifs: ["À compléter"],
+    fonctionnalites: ["À compléter"],
+    technologies: ["À compléter"],
+    role: "À compléter",
+    statut: "prototype",
+    demo: null,
+    github: "https://github.com/KOUAKOU-FRANCK/resto",
+    vedette: false,
+    afficher: true,
+  },
+  {
+    id: "certificat-residence",
+    nom: "Certificat de résidence",
+    image: "/images/projets/exemple.svg",
+    probleme: "À compléter",
+    objectifs: ["À compléter"],
+    fonctionnalites: ["À compléter"],
+    technologies: ["À compléter"],
+    role: "À compléter",
+    statut: "en cours",
+    demo: null,
+    github: "https://github.com/KOUAKOU-FRANCK/CERTICAT-DE-RESIDENCE",
+    vedette: false,
+    afficher: true,
+  },
+];
+
+export const visibleProjects = projects.filter((p) => p.afficher);
