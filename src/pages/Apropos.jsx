@@ -74,7 +74,8 @@ const certifications = [
     lien: verifier("d9f268626454018aa4fb00f27ed07a0c"),
   },
   { nom: "CSCU — Certified Secure Computer User" },
-  { nom: "Formation en cybersécurité et sécurité informatique" },
+  { nom: "Formation en hacking éthique (CEH) et sécurité informatique" },
+  { nom: "Formation aux compétences numériques fondamentales" },
   { nom: "Formations complémentaires en développement web et technologies numériques" },
 ];
 
@@ -100,14 +101,35 @@ export default function Apropos() {
           <div>
             <h2>Qui suis-je ?</h2>
             <p>
-              Technicien supérieur en informatique, titulaire d'un BTS Informatique Développement
-              d'Applications, je suis spécialisé dans le support utilisateurs, la résolution
-              d'incidents, la maintenance des systèmes et l'assistance sur les applications métiers.
+              Technicien supérieur en informatique, je suis titulaire d'un BTS Informatique, option
+              Développement d'Applications. Depuis août 2023, j'occupe un poste de technicien
+              supérieur en informatique (CDI) à la <strong>Mairie de Port-Bouët</strong>, à Abidjan.
             </p>
             <p>
-              Depuis 2023, j'accompagne les services de la Mairie de Port-Bouët au quotidien et je
-              conçois des applications de gestion administrative. En parallèle, je pratique la
-              photographie événementielle.
+              Au quotidien, j'assure le support des utilisateurs, la maintenance du parc informatique,
+              le dépannage du réseau local et la sécurisation des postes : antivirus, pare-feu,
+              sauvegardes et contrôle des accès. J'ai également conçu et déployé des logiciels pour
+              les services municipaux, notamment pour la délivrance des certificats de résidence et
+              des certificats administratifs, avec des documents PDF authentifiés par QR code.
+            </p>
+            <p>
+              La sécurité informatique tient une place importante dans mon parcours. Une formation en
+              hacking éthique (CEH) m'a appris à identifier les vulnérabilités des systèmes et les
+              moyens de les corriger, et ma certification <strong>CSCU</strong> (Certified Secure
+              Computer User) atteste de mes compétences en cybersécurité. Une formation aux
+              compétences numériques fondamentales m'a aussi permis de renforcer la gestion de
+              projet, la résolution de problèmes et le travail en équipe.
+            </p>
+            <p>
+              Je me forme également à l'intelligence artificielle : en octobre 2026, j'ai obtenu
+              <strong> six certifications Claude Academy d'Anthropic</strong>, dont Claude Code 101,
+              Claude Code in action et Claude Platform 101, pour intégrer l'IA dans le développement
+              d'applications et l'automatisation des tâches.
+            </p>
+            <p>
+              Passionné de technologie, je souhaite mettre ces compétences au service d'une
+              entreprise ou d'une organisation pour l'aider à atteindre ses objectifs numériques. En
+              parallèle, je pratique la photographie événementielle.
             </p>
             <div className="hero__actions">
               <a href={profile.cv} className="btn btn--primary" download>
