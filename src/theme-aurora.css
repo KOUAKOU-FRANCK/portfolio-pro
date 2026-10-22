@@ -1,0 +1,221 @@
+/* =====================================================================
+   Thème « Aurore » — inspiré de superconscious-app.webflow.io
+   Fond sombre, halos colorés en dégradé, cartes en verre, boutons pilule.
+   Pour revenir à l'ancien thème : retirer l'import de ce fichier dans main.jsx.
+   ===================================================================== */
+:root {
+  --fond: #07070d;
+  --fond-2: #0d0d18;
+  --verre: rgba(255, 255, 255, 0.045);
+  --verre-fort: rgba(255, 255, 255, 0.08);
+  --verre-bord: rgba(255, 255, 255, 0.11);
+  --texte-clair: #eef0f7;
+  --texte-attenue: #a7adc2;
+  --violet: #8b5cf6;
+  --bleu: #3b82f6;
+  --cyan: #22d3ee;
+  --rose: #e879f9;
+  --accent-lien: #a5b4fc;
+  /* Teintes assombries pour garder un bon contraste avec le texte blanc des boutons */
+  --degrade: linear-gradient(120deg, #7c3aed 0%, #2563eb 55%, #0e7490 100%);
+  --degrade-texte: linear-gradient(100deg, #ffffff 0%, #c7d2fe 40%, #a78bfa 75%, #67e8f9 100%);
+
+  --bleu-nuit: var(--texte-clair);
+  --bleu-electrique: #6d7cff;
+  --bleu-electrique-hover: #8b96ff;
+  --gris-clair: var(--fond-2);
+  --gris-bordure: var(--verre-bord);
+  --texte: var(--texte-clair);
+  --texte-doux: var(--texte-attenue);
+  --radius: 22px;
+  --ombre: 0 10px 40px rgba(0, 0, 0, 0.35);
+
+  color: var(--texte-clair);
+  background: var(--fond);
+  color-scheme: dark;
+}
+
+body {
+  background: var(--fond);
+  color: var(--texte-clair);
+}
+
+/* Halos d'aurore en arrière-plan (fixes, derrière tout le contenu) */
+body {
+  background:
+    radial-gradient(60vmax 45vmax at 12% -5%, rgba(139, 92, 246, 0.30), transparent 60%),
+    radial-gradient(50vmax 40vmax at 95% 10%, rgba(59, 130, 246, 0.24), transparent 60%),
+    radial-gradient(60vmax 45vmax at 65% 110%, rgba(34, 211, 238, 0.16), transparent 60%),
+    radial-gradient(40vmax 35vmax at -5% 85%, rgba(232, 121, 249, 0.14), transparent 60%),
+    var(--fond);
+  background-attachment: fixed;
+}
+
+h1, h2, h3 {
+  font-family: "Sora", "Inter", system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  color: var(--texte-clair);
+}
+h1 { font-weight: 600; }
+h2 { font-weight: 600; }
+
+a { color: var(--accent-lien); }
+a:hover { color: #c7d2fe; }
+:focus-visible { outline-color: var(--cyan); }
+
+.texte-degrade {
+  background: var(--degrade-texte);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ===== Boutons pilule ===== */
+.btn {
+  border-radius: 999px;
+  padding: 0.8rem 1.6rem;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn--primary {
+  background: var(--degrade);
+  color: #ffffff;
+  box-shadow: 0 8px 30px rgba(109, 124, 255, 0.35);
+}
+.btn--primary:hover { background: var(--degrade); color: #ffffff; box-shadow: 0 10px 38px rgba(109, 124, 255, 0.5); }
+.btn--light,
+.btn--ghost {
+  background: var(--verre);
+  color: var(--texte-clair);
+  border: 1px solid var(--verre-bord);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.btn--light:hover,
+.btn--ghost:hover { background: var(--verre-fort); color: #ffffff; border-color: rgba(255, 255, 255, 0.22); }
+
+.badge { background: var(--verre-fort); color: var(--texte-clair); border: 1px solid var(--verre-bord); }
+.badge--success { background: rgba(34, 197, 94, 0.15); color: #86efac; border-color: rgba(34, 197, 94, 0.35); }
+.badge--warning { background: rgba(245, 158, 11, 0.15); color: #fcd34d; border-color: rgba(245, 158, 11, 0.35); }
+.badge--info { background: rgba(59, 130, 246, 0.15); color: #93c5fd; border-color: rgba(59, 130, 246, 0.35); }
+
+/* ===== Navigation en verre ===== */
+.navbar {
+  background: rgba(7, 7, 13, 0.6);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-bottom: 1px solid var(--verre-bord);
+}
+.navbar__brand { font-family: "Sora", "Inter", sans-serif; letter-spacing: -0.01em; }
+.navbar__links a { color: var(--texte-attenue); border-radius: 999px; }
+.navbar__links a:hover,
+.navbar__links a.active { color: #ffffff; background: var(--verre-fort); }
+@media (max-width: 900px) {
+  .navbar__links {
+    background: rgba(10, 10, 20, 0.92);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--verre-bord);
+  }
+}
+
+/* ===== Hero centré ===== */
+.hero {
+  background: transparent;
+  padding: clamp(5rem, 14vh, 9rem) 0 clamp(4rem, 10vh, 6rem);
+  text-align: center;
+}
+.hero__inner { display: flex; flex-direction: column; align-items: center; }
+.hero h1.texte-degrade { color: transparent; }
+.hero h1 {
+  font-size: clamp(2.6rem, 7.5vw, 5.2rem);
+  line-height: 1.04;
+  margin-bottom: 1.25rem;
+}
+.hero__eyebrow {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--verre-bord);
+  background: var(--verre);
+  color: #c7d2fe;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.hero__title { color: #dfe3f3; font-size: clamp(1.05rem, 2.2vw, 1.3rem); }
+.hero__intro { color: var(--texte-attenue); max-width: 680px; margin-left: auto; margin-right: auto; }
+.hero__actions { justify-content: center; }
+
+.page-header {
+  background: transparent;
+  padding: clamp(3.5rem, 9vh, 5.5rem) 0 1.5rem;
+}
+.page-header h1 {
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  background: var(--degrade-texte);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section--alt { background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.025) 20%, rgba(255, 255, 255, 0.025) 80%, transparent); }
+
+/* ===== Cartes en verre ===== */
+.card,
+.cert-list li,
+.contact-links--large li {
+  background: var(--verre);
+  border: 1px solid var(--verre-bord);
+  border-radius: var(--radius);
+  box-shadow: var(--ombre);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: border-color 0.25s, transform 0.25s, background 0.25s;
+}
+.card:hover { border-color: rgba(167, 139, 250, 0.45); transform: translateY(-2px); background: var(--verre-fort); }
+.domain-card,
+.domain-card--photo { border-top: 1px solid var(--verre-bord); position: relative; overflow: hidden; }
+.domain-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--degrade);
+}
+.skill-card__list li { border-bottom-color: var(--verre-bord); }
+.project-card img { background: var(--fond-2); border-bottom: 1px solid var(--verre-bord); }
+.project-card__details dt { color: #c7d2fe; }
+.tags li { background: rgba(139, 92, 246, 0.14); color: #ddd6fe; border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 999px; }
+
+.cert-list li { border-left: 1px solid var(--verre-bord); }
+.cert-list__nom { color: var(--texte-clair); }
+
+.timeline { border-left: 2px solid transparent; border-image: var(--degrade) 1; }
+.timeline li::before { background: var(--fond); border-color: var(--violet); }
+.timeline__periode { color: #a5b4fc; }
+.timeline__sous-titre { color: #c7d2fe; }
+.about__portrait { border-radius: var(--radius); border: 1px solid var(--verre-bord); box-shadow: 0 0 60px rgba(139, 92, 246, 0.25); }
+
+/* ===== Pied de page ===== */
+.footer {
+  background: rgba(5, 5, 10, 0.75);
+  border-top: 1px solid var(--verre-bord);
+  color: var(--texte-attenue);
+}
+.footer__name { font-family: "Sora", "Inter", sans-serif; }
+.footer__bottom { border-top-color: var(--verre-bord); }
+
+/* ===== Photographie : reste plus sobre pour laisser parler les images ===== */
+.theme-photo { background: rgba(0, 0, 0, 0.55); }
+.theme-photo .page-header { background: transparent; }
+.theme-photo .card { background: rgba(255, 255, 255, 0.04); }
+.filter { border-color: var(--verre-bord); background: var(--verre); border-radius: 999px; }
+.filter[aria-pressed="true"] { background: var(--degrade); color: #ffffff; border-color: transparent; }
+.gallery__item { border-radius: 16px; }
+
+.skip-link { background: var(--violet); }
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover, .btn:hover { transform: none; }
+}
