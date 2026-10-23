@@ -315,30 +315,6 @@ ul { padding-left: 1.2rem; }
   color: #1a3f8f;
 }
 
-/* ===== À propos ===== */
-.about { display: grid; gap: 2rem; align-items: start; }
-@media (min-width: 768px) {
-  .about { grid-template-columns: 280px 1fr; }
-}
-.about__portrait { border-radius: var(--radius); width: 100%; max-width: 320px; }
-.about__domaines { color: var(--bleu-electrique); font-weight: 600; margin-bottom: 1rem; }
-.about__mission { border-left: 4px solid var(--bleu-electrique); padding-left: 1rem; }
-
-.timeline { list-style: none; padding: 0; margin: 0; border-left: 3px solid var(--bleu-electrique); }
-.timeline li { position: relative; padding: 0 0 1.5rem 1.5rem; }
-.timeline li::before {
-  content: "";
-  position: absolute;
-  left: -9px;
-  top: 0.35rem;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: var(--blanc);
-  border: 3px solid var(--bleu-electrique);
-}
-.timeline__periode { font-weight: 600; color: var(--bleu-electrique); margin-bottom: 0.25rem; }
-
 /* ===== Contact ===== */
 .contact-links {
   list-style: none;
@@ -486,26 +462,3 @@ ul { padding-left: 1.2rem; }
   }
 }
 
-/* ===== À propos : compléments ===== */
-.timeline li li { padding: 0; }
-.timeline li li::before { display: none; }
-.timeline ul { margin: 0.5rem 0 0; }
-.timeline__sous-titre { font-weight: 600; color: var(--bleu-nuit); margin: 1rem 0 0; }
-.cert-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
-@media (min-width: 700px) {
-  .cert-list { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 1000px) {
-  .cert-list { grid-template-columns: repeat(3, 1fr); }
-}
-.cert-list li {
-  padding: 1rem 1.25rem;
-  border: 1px solid var(--gris-bordure);
-  border-left: 4px solid var(--bleu-electrique);
-  border-radius: 8px;
-  background: var(--blanc);
-}
-.cert-list li p { margin: 0; }
-.cert-list__nom { font-weight: 600; color: var(--bleu-nuit); }
-.cert-list__badge { width: 100%; height: auto; border-radius: 6px; margin-bottom: 0.75rem; }
-.cert-list__lien { display: inline-block; margin-top: 0.5rem; font-weight: 600; font-size: 0.9rem; }

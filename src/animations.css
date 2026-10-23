@@ -9,6 +9,16 @@
   to { box-shadow: 0 0 0 10px rgba(94, 234, 212, 0); }
 }
 
+@keyframes degrade-glisse {
+  to { background-position: 300% 0; }
+}
+
+@keyframes tourne { to { transform: rotate(360deg); } }
+@keyframes flotte {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
 /* Entrée au chargement : style={{ "--d": n }} pour décaler */
 .entree {
   animation: entree-monte 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;

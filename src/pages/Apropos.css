@@ -1,0 +1,346 @@
+/* ===== Page À propos ===== */
+
+/* --- En-tête --- */
+.apropos-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 4rem 0 4.5rem;
+  background: #081733;
+  color: var(--blanc);
+}
+.apropos-hero__fond {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.apropos-hero__halo {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  animation: halo-derive 18s ease-in-out infinite alternate;
+}
+.apropos-hero__halo--1 { width: 400px; height: 400px; background: #1a5fd6; top: -160px; right: 15%; opacity: 0.5; }
+.apropos-hero__halo--2 { width: 300px; height: 300px; background: #6366f1; bottom: -150px; left: 5%; opacity: 0.35; animation-delay: -9s; }
+.apropos-hero__eyebrow {
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  color: #8fb4ff;
+}
+.apropos-hero h1 {
+  max-width: 820px;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #ffffff, #8fb4ff, #5eead4, #ffffff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: entree-monte 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both, degrade-glisse 8s linear infinite;
+  animation-delay: 110ms, 0s;
+}
+.apropos-hero__domaines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+}
+.apropos-hero__domaines li {
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(143, 180, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #dbe6ff;
+}
+
+/* --- Profil : carte + biographie --- */
+.apropos-profil { overflow-x: clip; }
+.apropos-profil__grille { display: grid; gap: 2.5rem; align-items: start; }
+@media (min-width: 900px) {
+  .apropos-profil__grille { grid-template-columns: 320px 1fr; }
+  .apropos-carte { position: sticky; top: calc(var(--nav-hauteur) + 1.5rem); }
+}
+.apropos-carte {
+  overflow: hidden;
+  padding: 1.5rem;
+  border: 1px solid var(--gris-bordure);
+  border-radius: 20px;
+  background: var(--blanc);
+  box-shadow: 0 18px 40px rgba(11, 29, 58, 0.1);
+}
+.apropos-carte__photo { position: relative; margin: 0 auto 1.25rem; max-width: 260px; }
+.apropos-carte__anneau {
+  position: absolute;
+  inset: -8px;
+  border-radius: 24px;
+  background: conic-gradient(from 0deg, #1a5fd6, #5eead4, #6366f1, #0ea5e9, #1a5fd6);
+  filter: blur(14px);
+  opacity: 0.55;
+  animation: tourne 10s linear infinite;
+}
+.apropos-carte__photo img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 18px;
+}
+.apropos-carte__nom { margin: 0 0 1rem; text-align: center; font-size: 1.15rem; font-weight: 700; color: var(--bleu-nuit); }
+.apropos-carte__reperes { margin: 0 0 1.25rem; }
+.apropos-carte__reperes div {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--gris-bordure);
+  font-size: 0.92rem;
+}
+.apropos-carte__reperes dt { color: var(--texte-doux); }
+.apropos-carte__reperes dd { margin: 0; font-weight: 600; color: var(--bleu-nuit); }
+.apropos-carte__actions { display: grid; gap: 0.5rem; text-align: center; }
+
+.apropos-bio__chapo { font-size: 1.15rem; color: var(--bleu-nuit); }
+.apropos-bio p { max-width: 70ch; }
+.apropos-mission {
+  position: relative;
+  margin: 2rem 0 0;
+  padding: 1.5rem 1.75rem;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--bleu-nuit), #1a3f7a);
+  color: #dbe6ff;
+  overflow: hidden;
+}
+.apropos-mission::after {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(94, 234, 212, 0.25);
+  filter: blur(40px);
+}
+.apropos-mission p { margin: 0; font-size: 1.1rem; font-weight: 600; color: var(--blanc); }
+.apropos-mission .apropos-mission__titre {
+  margin-bottom: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #5eead4;
+}
+
+/* --- Domaines d'expertise --- */
+.expertises {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+@media (min-width: 640px) {
+  .expertises { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .expertises { grid-template-columns: repeat(4, 1fr); }
+}
+.expertise {
+  padding: 1.5rem;
+  border: 1px solid var(--gris-bordure);
+  border-radius: 18px;
+  background: var(--blanc);
+  box-shadow: var(--ombre);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.expertise:hover {
+  transform: translateY(-6px);
+  border-color: var(--bleu-electrique);
+  box-shadow: 0 18px 40px rgba(11, 29, 58, 0.14);
+}
+.expertise h3 { font-size: 1.05rem; }
+.expertise p { margin: 0; color: var(--texte-doux); font-size: 0.95rem; }
+.expertise__icone,
+.autres-certs__icone {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--bleu-electrique), #0ea5e9);
+  color: var(--blanc);
+  transition: transform 0.3s ease;
+}
+.expertise:hover .expertise__icone { transform: rotate(-8deg) scale(1.08); }
+.expertise__icone svg,
+.autres-certs__icone svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* --- Parcours --- */
+.parcours { position: relative; list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.parcours::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 11px;
+  width: 3px;
+  border-radius: 3px;
+  background: linear-gradient(var(--bleu-electrique), #5eead4);
+}
+.parcours__etape { position: relative; padding: 0 0 1.5rem 3rem; }
+.parcours__point {
+  position: absolute;
+  top: 1.4rem;
+  left: 3px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: var(--blanc);
+  border: 4px solid var(--bleu-electrique);
+  box-shadow: 0 0 0 6px rgba(26, 95, 214, 0.15);
+}
+.parcours__carte {
+  padding: 1.5rem;
+  border: 1px solid var(--gris-bordure);
+  border-radius: 18px;
+  background: var(--blanc);
+  box-shadow: var(--ombre);
+}
+.parcours__periode {
+  display: inline-block;
+  margin: 0 0 0.6rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(26, 95, 214, 0.1);
+  color: var(--bleu-electrique);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.parcours__carte h3 { margin-bottom: 0.25rem; }
+.parcours__carte > .muted { margin: 0; }
+.parcours__sous-titre { margin: 1.25rem 0 0.5rem; font-weight: 700; color: var(--bleu-nuit); }
+.parcours__liste { display: grid; gap: 0.5rem; list-style: none; padding: 0; margin: 0; }
+@media (min-width: 900px) {
+  .parcours__liste { grid-template-columns: repeat(2, 1fr); column-gap: 2rem; }
+}
+.parcours__liste li { position: relative; padding-left: 1.6rem; font-size: 0.95rem; }
+.parcours__liste li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  width: 14px;
+  height: 8px;
+  border-left: 2px solid var(--bleu-electrique);
+  border-bottom: 2px solid var(--bleu-electrique);
+  transform: rotate(-45deg);
+}
+.parcours__liste--realisations li::before { border-color: #0f9f6e; }
+
+/* --- Certifications --- */
+.badges {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+}
+@media (min-width: 640px) {
+  .badges { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .badges { grid-template-columns: repeat(3, 1fr); }
+}
+.badge-cert {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--gris-bordure);
+  border-radius: 18px;
+  background: var(--blanc);
+  box-shadow: var(--ombre);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.badge-cert:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(11, 29, 58, 0.14); }
+.badge-cert__image { overflow: hidden; }
+.badge-cert__image img { width: 100%; transition: transform 0.5s ease; }
+.badge-cert:hover .badge-cert__image img { transform: scale(1.04); }
+.badge-cert__corps { padding: 1rem 1.25rem 1.25rem; }
+.badge-cert__corps p,
+.autres-certs p { margin: 0; }
+.badge-cert__nom,
+.autres-certs__nom { font-weight: 700; color: var(--bleu-nuit); }
+.badge-cert__lien {
+  display: inline-block;
+  margin-top: 0.6rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(26, 95, 214, 0.1);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.badge-cert__lien:hover { background: var(--bleu-electrique); color: var(--blanc); }
+
+.autres-certs__titre { margin-top: 2.5rem; }
+.autres-certs {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+@media (min-width: 768px) {
+  .autres-certs { grid-template-columns: repeat(2, 1fr); }
+}
+.autres-certs li {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--gris-bordure);
+  border-radius: 14px;
+  background: var(--blanc);
+}
+.autres-certs__icone { flex: none; width: 40px; height: 40px; margin: 0; border-radius: 12px; }
+.autres-certs__icone svg { width: 20px; height: 20px; }
+
+/* --- Appel à l'action --- */
+.apropos-cta {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2.25rem;
+  overflow: hidden;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--bleu-nuit), #1a3f7a);
+  color: #c3cee0;
+}
+.apropos-cta h2 { color: var(--blanc); margin-bottom: 0.25rem; }
+.apropos-cta p { margin: 0; }
+.apropos-cta__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn--ghost-clair { border-color: rgba(255, 255, 255, 0.6); color: var(--blanc); background: transparent; }
+.btn--ghost-clair:hover { background: var(--blanc); color: var(--bleu-nuit); }

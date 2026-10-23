@@ -46,9 +46,6 @@
   color: transparent;
   animation: degrade-glisse 8s linear infinite;
 }
-@keyframes degrade-glisse {
-  to { background-position: 300% 0; }
-}
 
 .accueil-hero__point {
   display: inline-block;
@@ -118,11 +115,6 @@
   filter: blur(18px);
   opacity: 0.75;
   animation: tourne 10s linear infinite;
-}
-@keyframes tourne { to { transform: rotate(360deg); } }
-@keyframes flotte {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
 }
 
 .accueil-portrait__badge {

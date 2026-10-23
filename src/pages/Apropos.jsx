@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { profile } from "../data/profile.js";
+import { useApparition } from "../hooks/useApparition.js";
+import "./Apropos.css";
 
 const parcours = [
   {
@@ -81,29 +83,117 @@ const certifications = [
   { nom: "Formations complémentaires en développement web et technologies numériques" },
 ];
 
+const reperes = [
+  { libelle: "Poste", valeur: "Technicien supérieur en informatique" },
+  { libelle: "Employeur", valeur: "Mairie de Port-Bouët" },
+  { libelle: "Depuis", valeur: "Août 2023" },
+  { libelle: "Formation", valeur: "BTS Informatique, option Développement d'Applications" },
+  { libelle: "Basé à", valeur: "Abidjan, Côte d'Ivoire" },
+];
+
+const Icone = ({ children }) => (
+  <svg viewBox="0 0 24 24" aria-hidden="true">{children}</svg>
+);
+
+const expertises = [
+  {
+    titre: "Gestion de projets IT",
+    texte: "Conception, déploiement et suivi de solutions numériques pour les services municipaux.",
+    icone: (
+      <Icone>
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <path d="M3 9h18M8 14l2 2 4-4" />
+      </Icone>
+    ),
+  },
+  {
+    titre: "Développement d'applications",
+    texte: "Des logiciels de gestion conçus et déployés à la Mairie, avec documents PDF authentifiés par QR code.",
+    icone: (
+      <Icone>
+        <path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" />
+      </Icone>
+    ),
+  },
+  {
+    titre: "Cybersécurité",
+    texte: "Certifié CSCU, formé au hacking éthique (CEH) et à la sécurisation d'un parc informatique.",
+    icone: (
+      <Icone>
+        <path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z" />
+        <path d="M9 12l2 2 4-4" />
+      </Icone>
+    ),
+  },
+  {
+    titre: "Intelligence artificielle",
+    texte: "Six certifications Claude Academy pour intégrer l'IA et automatiser les processus métier.",
+    icone: (
+      <Icone>
+        <rect x="6" y="6" width="12" height="12" rx="2" />
+        <path d="M10 10h4v4h-4zM9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4" />
+      </Icone>
+    ),
+  },
+];
+
 export default function Apropos() {
+  useApparition();
+  const badges = certifications.filter((c) => c.image);
+  const autres = certifications.filter((c) => !c.image);
+
   return (
     <>
       <title>À propos — Kouakou Kouadio Franck</title>
-      <section className="page-header">
+
+      <section className="apropos-hero">
+        <div className="apropos-hero__fond" aria-hidden="true">
+          <span className="apropos-hero__halo apropos-hero__halo--1" />
+          <span className="apropos-hero__halo apropos-hero__halo--2" />
+        </div>
         <div className="container">
-          <h1>À propos</h1>
+          <p className="apropos-hero__eyebrow entree">À propos</p>
+          <h1 className="entree" style={{ "--d": 1 }}>{profile.accroche}</h1>
+          <ul className="apropos-hero__domaines" aria-label="Domaines d'expertise">
+            {profile.domaines.split(" · ").map((d, i) => (
+              <li key={d} className="entree" style={{ "--d": 2 + i * 0.5 }}>{d}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container about">
-          <img
-            className="about__portrait"
-            src={profile.portrait}
-            alt={`Portrait de ${profile.nom}`}
-            width="800"
-            height="1001"
-          />
-          <div>
-            <h2>{profile.accroche}</h2>
-            <p className="about__domaines">{profile.domaines}</p>
-            <p>
+      <section className="section apropos-profil">
+        <div className="container apropos-profil__grille">
+          <aside className="apropos-carte reveal">
+            <div className="apropos-carte__photo">
+              <span className="apropos-carte__anneau" aria-hidden="true" />
+              <picture>
+                <source srcSet="/images/portrait.webp" type="image/webp" />
+                <img src={profile.portrait} alt={`Portrait de ${profile.nom}`} width="800" height="1001" />
+              </picture>
+            </div>
+            <p className="apropos-carte__nom">{profile.nom}</p>
+            <dl className="apropos-carte__reperes">
+              {reperes.map((r) => (
+                <div key={r.libelle}>
+                  <dt>{r.libelle}</dt>
+                  <dd>{r.valeur}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className="apropos-carte__actions">
+              <a href={profile.cv} className="btn btn--primary" download>
+                Télécharger mon CV
+              </a>
+              <a href={profile.cv} className="btn btn--ghost" target="_blank" rel="noopener noreferrer">
+                Consulter en ligne
+              </a>
+            </div>
+          </aside>
+
+          <div className="apropos-bio reveal" style={{ "--d": 1 }}>
+            <h2>Qui suis-je ?</h2>
+            <p className="apropos-bio__chapo">
               Technicien supérieur en informatique, titulaire d’un BTS Informatique, option
               Développement d’Applications, j’exerce depuis août 2023 à la{" "}
               <strong>Mairie de Port-Bouët</strong>, où je contribue à la transformation numérique
@@ -135,85 +225,123 @@ export default function Apropos() {
               En parallèle, je pratique la photographie événementielle, qui reflète mon esprit créatif
               et mon souci du détail.
             </p>
-            <p className="about__mission">
-              <strong>
-                Ma mission : accompagner la transformation numérique, simplifier les processus et
-                aider les organisations à tirer pleinement parti des nouvelles technologies.
-              </strong>
-            </p>
-            <div className="hero__actions">
-              <a href={profile.cv} className="btn btn--primary" download>
-                Télécharger mon CV (PDF)
-              </a>
-              <a href={profile.cv} className="btn btn--ghost" target="_blank" rel="noopener noreferrer">
-                Consulter en ligne
-              </a>
-            </div>
+            <blockquote className="apropos-mission">
+              <p className="apropos-mission__titre">Ma mission</p>
+              <p>
+                Accompagner la transformation numérique, simplifier les processus et aider les
+                organisations à tirer pleinement parti des nouvelles technologies.
+              </p>
+            </blockquote>
           </div>
         </div>
       </section>
 
       <section className="section section--alt">
         <div className="container">
-          <h2>Parcours</h2>
-          <ol className="timeline">
-            {parcours.map((e) => (
-              <li key={e.titre}>
-                <p className="timeline__periode">{e.periode}</p>
+          <h2 className="reveal">Mes domaines d'expertise</h2>
+          <ul className="expertises reveal">
+            {expertises.map((e) => (
+              <li key={e.titre} className="expertise">
+                <span className="expertise__icone">{e.icone}</span>
                 <h3>{e.titre}</h3>
-                <p className="muted">{e.lieu}</p>
-                {e.missions && (
-                  <ul>
-                    {e.missions.map((m) => <li key={m}>{m}</li>)}
-                  </ul>
-                )}
-                {e.realisations && (
-                  <>
-                    <p className="timeline__sous-titre">Réalisations</p>
-                    <ul>
-                      {e.realisations.map((r) => <li key={r}>{r}</li>)}
-                    </ul>
-                  </>
-                )}
+                <p>{e.texte}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <h2 className="reveal">Parcours</h2>
+          <ol className="parcours">
+            {parcours.map((e) => (
+              <li key={e.titre} className="parcours__etape reveal">
+                <span className="parcours__point" aria-hidden="true" />
+                <div className="parcours__carte">
+                  <p className="parcours__periode">{e.periode}</p>
+                  <h3>{e.titre}</h3>
+                  <p className="muted">{e.lieu}</p>
+                  {e.missions && (
+                    <>
+                      <p className="parcours__sous-titre">Missions</p>
+                      <ul className="parcours__liste">
+                        {e.missions.map((m) => <li key={m}>{m}</li>)}
+                      </ul>
+                    </>
+                  )}
+                  {e.realisations && (
+                    <>
+                      <p className="parcours__sous-titre">Réalisations</p>
+                      <ul className="parcours__liste parcours__liste--realisations">
+                        {e.realisations.map((r) => <li key={r}>{r}</li>)}
+                      </ul>
+                    </>
+                  )}
+                </div>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--alt">
         <div className="container">
-          <h2>Certifications et formations</h2>
-          <ul className="cert-list">
-            {certifications.map((c) => (
-              <li key={c.nom} className={c.image ? "cert-list__item--badge" : undefined}>
-                {c.image && (
-                  <img
-                    className="cert-list__badge"
-                    src={c.image}
-                    alt={`Badge ${c.nom} délivré par Anthropic`}
-                    width="640"
-                    height="438"
-                    loading="lazy"
-                  />
-                )}
-                <p className="cert-list__nom">{c.nom}</p>
-                {c.organisme && (
-                  <p className="muted">
-                    {c.organisme} · {c.date}
-                  </p>
-                )}
-                {c.lien && (
-                  <a className="cert-list__lien" href={c.lien} target="_blank" rel="noopener noreferrer">
-                    Vérifier la certification ↗
-                  </a>
-                )}
+          <h2 className="reveal">Certifications et formations</h2>
+          <p className="muted reveal">Badges Claude Academy (Anthropic), vérifiables en ligne.</p>
+          <ul className="badges reveal">
+            {badges.map((c) => (
+              <li key={c.nom} className="badge-cert">
+                <div className="badge-cert__image">
+                  <img src={c.image} alt={`Badge ${c.nom} délivré par Anthropic`} width="640" height="438" loading="lazy" />
+                </div>
+                <div className="badge-cert__corps">
+                  <p className="badge-cert__nom">{c.nom}</p>
+                  <p className="muted">{c.organisme} · {c.date}</p>
+                  {c.lien && (
+                    <a className="badge-cert__lien" href={c.lien} target="_blank" rel="noopener noreferrer">
+                      Vérifier <span aria-hidden="true">↗</span>
+                    </a>
+                  )}
+                </div>
               </li>
             ))}
           </ul>
-          <p className="section__more">
-            <Link to="/informatique">Voir le détail de mes compétences →</Link>
-          </p>
+
+          <h3 className="autres-certs__titre reveal">Autres certifications et formations</h3>
+          <ul className="autres-certs reveal">
+            {autres.map((c) => (
+              <li key={c.nom}>
+                <span className="autres-certs__icone" aria-hidden="true">
+                  <Icone><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z" /><path d="M9 12l2 2 4-4" /></Icone>
+                </span>
+                <div>
+                  <p className="autres-certs__nom">{c.nom}</p>
+                  {c.organisme && <p className="muted">{c.organisme} · {c.date}</p>}
+                  {c.lien && (
+                    <a className="badge-cert__lien" href={c.lien} target="_blank" rel="noopener noreferrer">
+                      Vérifier <span aria-hidden="true">↗</span>
+                    </a>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="apropos-cta reveal">
+            <div>
+              <h2>Travaillons ensemble</h2>
+              <p>Un poste, un projet informatique ou IA, une prestation photo : parlons-en.</p>
+            </div>
+            <div className="apropos-cta__actions">
+              <Link to="/contact" className="btn btn--light">Me contacter</Link>
+              <Link to="/informatique" className="btn btn--ghost-clair">Voir mes compétences</Link>
+            </div>
+          </div>
         </div>
       </section>
     </>
