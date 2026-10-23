@@ -3,8 +3,10 @@
 export const profile = {
   nom: "Kouakou Kouadio Franck",
   titre: "Technicien supérieur en informatique & photographe événementiel",
+  accroche: "Je transforme les idées en solutions innovantes",
+  domaines: "Gestion de projets IT · Développement d’applications · Cybersécurité · Intelligence artificielle",
   introduction:
-    "Technicien supérieur en informatique et développeur d'applications, je conçois des solutions numériques, accompagne les utilisateurs et réalise des photographies pour immortaliser les moments importants.",
+    "Ma mission : accompagner la transformation numérique, simplifier les processus et aider les organisations à tirer pleinement parti des nouvelles technologies.",
   portrait: "/images/portrait.jpg",
   cv: "/cv.pdf",
 
