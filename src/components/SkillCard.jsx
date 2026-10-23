@@ -1,6 +1,7 @@
-export default function SkillCard({ titre, description, competences }) {
+export default function SkillCard({ titre, description, competences, icone }) {
   return (
-    <article className="card skill-card">
+    <article className="skill-card">
+      {icone && <span className="skill-card__icone">{icone}</span>}
       <h3>{titre}</h3>
       {description && <p className="muted">{description}</p>}
       <ul className="skill-card__list">

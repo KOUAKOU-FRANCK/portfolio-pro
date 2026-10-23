@@ -129,6 +129,8 @@ ul { padding-left: 1.2rem; }
 .btn--light:hover { background: var(--gris-clair); color: var(--bleu-nuit); }
 .btn--ghost { border-color: var(--bleu-electrique); color: var(--bleu-electrique); background: transparent; }
 .btn--ghost:hover { background: var(--bleu-electrique); color: var(--blanc); }
+.btn--ghost-clair { border-color: rgba(255, 255, 255, 0.6); color: var(--blanc); background: transparent; }
+.btn--ghost-clair:hover { background: var(--blanc); color: var(--bleu-nuit); }
 
 .badge {
   display: inline-block;
@@ -287,16 +289,6 @@ ul { padding-left: 1.2rem; }
 .domain-card { border-top: 4px solid var(--bleu-electrique); }
 .domain-card--photo { border-top-color: var(--bleu-nuit); }
 
-.skill-card__list { list-style: none; padding: 0; margin: 0; }
-.skill-card__list li {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.5rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid var(--gris-clair);
-}
-.skill-card__list li:last-child { border-bottom: 0; }
-
 .project-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
 .project-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--gris-clair); }
 .project-card__body { padding: 1.25rem 1.5rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
@@ -314,6 +306,87 @@ ul { padding-left: 1.2rem; }
   background: #e1ebff;
   color: #1a3f8f;
 }
+
+/* ===== En-tête sombre des pages (À propos, Projets, Informatique) ===== */
+.entete-sombre {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 4rem 0 4.5rem;
+  background: #081733;
+  color: var(--blanc);
+}
+.entete-sombre__fond {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.entete-sombre__halo {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  animation: halo-derive 18s ease-in-out infinite alternate;
+}
+.entete-sombre__halo--1 { width: 420px; height: 420px; background: #1a5fd6; top: -180px; left: 30%; opacity: 0.5; }
+.entete-sombre__halo--2 { width: 300px; height: 300px; background: #0ea5e9; bottom: -160px; right: 5%; opacity: 0.4; animation-delay: -9s; }
+.entete-sombre__eyebrow {
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  color: #8fb4ff;
+}
+.entete-sombre h1 {
+  max-width: 820px;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #ffffff, #8fb4ff, #5eead4, #ffffff);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: entree-monte 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both, degrade-glisse 8s linear infinite;
+  animation-delay: 110ms, 0s;
+}
+.entete-sombre__intro { max-width: 640px; margin: 0; color: #c3cee0; font-size: 1.05rem; }
+.entete-sombre__puces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+.entete-sombre__puces li {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid rgba(143, 180, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #dbe6ff;
+}
+.entete-sombre__puces strong { color: #5eead4; font-size: 1.05rem; margin-right: 0.15rem; }
+
+/* Bandeau d'appel à l'action en bas de page */
+.bandeau-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2.25rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--bleu-nuit), #1a3f7a);
+  color: #c3cee0;
+}
+.bandeau-cta h2 { color: var(--blanc); margin-bottom: 0.25rem; }
+.bandeau-cta p { margin: 0; }
+.bandeau-cta__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
 /* ===== Contact ===== */
 .contact-links {

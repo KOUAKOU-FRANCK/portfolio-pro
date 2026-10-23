@@ -92,19 +92,19 @@ export default function Projets() {
     <>
       <title>Projets informatiques — Kouakou Kouadio Franck</title>
 
-      <section className="projets-hero">
-        <div className="projets-hero__fond" aria-hidden="true">
-          <span className="projets-hero__halo projets-hero__halo--1" />
-          <span className="projets-hero__halo projets-hero__halo--2" />
+      <section className="entete-sombre">
+        <div className="entete-sombre__fond" aria-hidden="true">
+          <span className="entete-sombre__halo entete-sombre__halo--1" />
+          <span className="entete-sombre__halo entete-sombre__halo--2" />
         </div>
         <div className="container">
-          <p className="projets-hero__eyebrow entree">Projets informatiques</p>
+          <p className="entete-sombre__eyebrow entree">Projets informatiques</p>
           <h1 className="entree" style={{ "--d": 1 }}>Mes réalisations</h1>
-          <p className="projets-hero__intro entree" style={{ "--d": 2 }}>
+          <p className="entete-sombre__intro entree" style={{ "--d": 2 }}>
             Des logiciels conçus pour répondre à de vrais besoins : objectifs, fonctionnalités et
             technologies utilisées pour chaque projet.
           </p>
-          <ul className="projets-hero__chiffres entree" style={{ "--d": 3 }}>
+          <ul className="entete-sombre__puces entree" style={{ "--d": 3 }}>
             <li><strong>{visibleProjects.length}</strong> projets</li>
             <li><strong>{termines}</strong> terminés</li>
             <li><strong>{technologies.size}</strong> technologies</li>
@@ -145,7 +145,7 @@ export default function Projets() {
 
       <section className="section">
         <div className="container">
-          <div className="projets-cta reveal">
+          <div className="bandeau-cta reveal">
             <div>
               <h2>Un projet en tête ?</h2>
               <p>Application, automatisation ou intégration de l'IA : parlons de vos besoins.</p>

@@ -146,15 +146,15 @@ export default function Apropos() {
     <>
       <title>À propos — Kouakou Kouadio Franck</title>
 
-      <section className="apropos-hero">
-        <div className="apropos-hero__fond" aria-hidden="true">
-          <span className="apropos-hero__halo apropos-hero__halo--1" />
-          <span className="apropos-hero__halo apropos-hero__halo--2" />
+      <section className="entete-sombre">
+        <div className="entete-sombre__fond" aria-hidden="true">
+          <span className="entete-sombre__halo entete-sombre__halo--1" />
+          <span className="entete-sombre__halo entete-sombre__halo--2" />
         </div>
         <div className="container">
-          <p className="apropos-hero__eyebrow entree">À propos</p>
+          <p className="entete-sombre__eyebrow entree">À propos</p>
           <h1 className="entree" style={{ "--d": 1 }}>{profile.accroche}</h1>
-          <ul className="apropos-hero__domaines" aria-label="Domaines d'expertise">
+          <ul className="entete-sombre__puces" aria-label="Domaines d'expertise">
             {profile.domaines.split(" · ").map((d, i) => (
               <li key={d} className="entree" style={{ "--d": 2 + i * 0.5 }}>{d}</li>
             ))}
@@ -332,12 +332,12 @@ export default function Apropos() {
 
       <section className="section">
         <div className="container">
-          <div className="apropos-cta reveal">
+          <div className="bandeau-cta reveal">
             <div>
               <h2>Travaillons ensemble</h2>
               <p>Un poste, un projet informatique ou IA, une prestation photo : parlons-en.</p>
             </div>
-            <div className="apropos-cta__actions">
+            <div className="bandeau-cta__actions">
               <Link to="/contact" className="btn btn--light">Me contacter</Link>
               <Link to="/informatique" className="btn btn--ghost-clair">Voir mes compétences</Link>
             </div>

@@ -1,68 +1,5 @@
 /* ===== Page Projets ===== */
 
-/* --- En-tête --- */
-.projets-hero {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  padding: 4rem 0 4.5rem;
-  background: #081733;
-  color: var(--blanc);
-}
-.projets-hero__fond {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
-.projets-hero__halo {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
-  animation: halo-derive 18s ease-in-out infinite alternate;
-}
-.projets-hero__halo--1 { width: 420px; height: 420px; background: #1a5fd6; top: -180px; left: 30%; opacity: 0.5; }
-.projets-hero__halo--2 { width: 300px; height: 300px; background: #0ea5e9; bottom: -160px; right: 5%; opacity: 0.4; animation-delay: -9s; }
-.projets-hero__eyebrow {
-  margin: 0 0 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 0.85rem;
-  color: #8fb4ff;
-}
-.projets-hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
-  letter-spacing: -0.02em;
-  background: linear-gradient(90deg, #ffffff, #8fb4ff, #5eead4, #ffffff);
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: entree-monte 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both, degrade-glisse 8s linear infinite;
-  animation-delay: 110ms, 0s;
-}
-.projets-hero__intro { max-width: 640px; margin: 0; color: #c3cee0; font-size: 1.05rem; }
-.projets-hero__chiffres {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0 0;
-}
-.projets-hero__chiffres li {
-  padding: 0.4rem 0.9rem;
-  border: 1px solid rgba(143, 180, 255, 0.35);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  font-size: 0.9rem;
-  color: #dbe6ff;
-}
-.projets-hero__chiffres strong { color: #5eead4; font-size: 1.05rem; margin-right: 0.15rem; }
-
 /* --- Filtres --- */
 .projets-filtres { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
 .projets-filtres__bouton {
@@ -167,18 +104,3 @@
 .projet .tags li { transition: transform 0.2s, background 0.2s; }
 .projet .tags li:hover { transform: translateY(-2px); }
 .projet__actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
-
-/* --- Appel à l'action --- */
-.projets-cta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding: 2.25rem;
-  border-radius: 20px;
-  background: linear-gradient(135deg, var(--bleu-nuit), #1a3f7a);
-  color: #c3cee0;
-}
-.projets-cta h2 { color: var(--blanc); margin-bottom: 0.25rem; }
-.projets-cta p { margin: 0; }
