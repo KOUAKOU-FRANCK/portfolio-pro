@@ -16,7 +16,7 @@ export default function Accueil() {
       <section className="hero">
         <div className="container hero__inner">
           <p className="hero__eyebrow">Portfolio</p>
-          <h1>{profile.nom}</h1>
+          <h1 className="texte-degrade">{profile.nom}</h1>
           <p className="hero__accroche">{profile.accroche}</p>
           <p className="hero__title">{profile.domaines}</p>
           <p className="hero__intro">{profile.introduction}</p>
