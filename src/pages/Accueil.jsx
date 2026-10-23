@@ -26,7 +26,8 @@ export default function Accueil() {
               <p className="terminal__commande" aria-hidden="true">whoami</p>
               <h1>{profile.nom}</h1>
               <p className="terminal__commande" aria-hidden="true">cat profil.txt</p>
-              <p className="hero__title">{profile.titre}</p>
+              <p className="hero__accroche">{profile.accroche}</p>
+              <p className="hero__title">{profile.domaines}</p>
               <p className="hero__intro">{profile.introduction}</p>
               <p className="terminal__commande" aria-hidden="true">
                 ls ./competences ./photographies<span className="terminal__curseur" />
