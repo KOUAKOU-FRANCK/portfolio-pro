@@ -211,3 +211,40 @@
 .accueil-projet img { transition: transform 0.5s ease; }
 .accueil-projet > .card:hover img { transform: scale(1.04); }
 
+
+/* Disponibilité (profile.disponibilite) */
+.accueil-dispo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.75rem;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(74, 222, 128, 0.4);
+  border-radius: 999px;
+  background: rgba(74, 222, 128, 0.12);
+  color: #bbf7d0;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.accueil-dispo__point {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: pulsation 2s ease-out infinite;
+}
+
+/* Témoignages */
+.temoignage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.temoignage:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(11, 29, 58, 0.12); }
+.temoignage .badge { align-self: flex-start; }
+.temoignage blockquote { margin: 0; flex: 1; font-style: italic; color: var(--texte); }
+.temoignage figcaption { display: flex; flex-direction: column; font-size: 0.92rem; }
+.temoignage figcaption strong { color: var(--bleu-nuit); }
+.temoignage figcaption span { color: var(--texte-doux); }

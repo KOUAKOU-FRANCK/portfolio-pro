@@ -36,6 +36,24 @@ Tous les contenus se modifient dans `src/data/`, sans toucher aux composants.
 - [x] `index.html` : adresse publique https://franck-kouakou.vercel.app et image de partage `public/images/partage.png`
 - [ ] Supprimer les images d'exemple (`exemple-*.svg`)
 
+### Sections prêtes, masquées tant qu'elles sont vides
+
+Remplissez la liste correspondante et la section apparaît d'elle-même (un exemple est en commentaire dans chaque fichier).
+
+- [ ] `src/data/profile.js` → `disponibilite` : badge « Ouvert aux opportunités… » en haut de l'accueil
+- [ ] `src/data/realisations.js` : réalisations en support et réseaux + chiffres clés (page Informatique)
+- [ ] `src/data/temoignages.js` : « Ils m'ont fait confiance » (accueil), avec l'accord des auteurs
+- [ ] `src/data/ia.js` : « L'IA dans mon travail » (page Informatique)
+- [ ] `src/data/photos.js` → `formules` : formules photo avec prix indicatif et bouton « Demander un devis »
+
+### Référencement et statistiques
+
+- `public/robots.txt` et `public/sitemap.xml` (à mettre à jour si une page est ajoutée)
+- Données structurées (profil + activité photo) dans `index.html`
+- Description propre à chaque page via `useDescription()` (`src/hooks/useDescription.js`)
+- Statistiques : activer **Analytics** dans le projet Vercel (onglet Analytics → Enable)
+- Google Search Console : ajouter le site, puis soumettre `https://franck-kouakou.vercel.app/sitemap.xml`
+
 ## Déploiement sur Vercel
 
 1. Se connecter sur https://vercel.com avec le compte GitHub.

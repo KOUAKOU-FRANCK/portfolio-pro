@@ -2,6 +2,7 @@ import { useState } from "react";
 import { profile, whatsappLink } from "../data/profile.js";
 import { useApparition } from "../hooks/useApparition.js";
 import "./Contact.css";
+import { useDescription } from "../hooks/useDescription.js";
 
 // Pas de formulaire avec envoi en V1 : aucun service d'envoi n'est connecté,
 // et le cahier des charges interdit de simuler un envoi réussi.
@@ -71,6 +72,9 @@ function CarteEmail() {
 }
 
 export default function Contact() {
+  useDescription(
+    "Contacter Kouakou Kouadio Franck par e-mail, WhatsApp ou LinkedIn pour une opportunité, un projet informatique ou une prestation photo."
+  );
   useApparition();
   const [sujet, setSujet] = useState(sujets[0]);
   const [message, setMessage] = useState(sujets[0].message);

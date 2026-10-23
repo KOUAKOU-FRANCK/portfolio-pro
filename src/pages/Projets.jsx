@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { visibleProjects } from "../data/projects.js";
 import { useApparition } from "../hooks/useApparition.js";
 import "./Projets.css";
+import { useDescription } from "../hooks/useDescription.js";
 
 const statutClasse = {
   "terminé": "badge--success",
@@ -83,6 +84,9 @@ function Projet({ projet, numero }) {
 }
 
 export default function Projets() {
+  useDescription(
+    "Projets informatiques de Kouakou Kouadio Franck : applications web conçues et déployées, avec leurs objectifs, fonctionnalités et technologies."
+  );
   const [filtre, setFiltre] = useState("tous");
   useApparition([filtre]);
   const projets = filtre === "tous" ? visibleProjects : visibleProjects.filter((p) => p.statut === filtre);

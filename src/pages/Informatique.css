@@ -182,3 +182,71 @@
     font-weight: 700;
   }
 }
+
+/* Réalisations support et réseaux (data/realisations.js) */
+.realisations__chiffres {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+.realisations__chiffres li {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--bleu-electrique);
+  border-radius: var(--radius);
+  background: var(--blanc);
+  box-shadow: var(--ombre);
+}
+.realisations__chiffres strong { font-size: 1.8rem; color: var(--bleu-nuit); line-height: 1.1; }
+.realisations__chiffres span { color: var(--texte-doux); font-size: 0.92rem; }
+.realisation { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.realisation:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(11, 29, 58, 0.12); }
+.realisation img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: calc(var(--radius) - 4px);
+  background: var(--gris-clair);
+}
+.realisation h3 { font-size: 1.15rem; }
+.realisation dt { font-weight: 600; color: var(--bleu-nuit); margin-top: 0.75rem; }
+.realisation dd { margin: 0.25rem 0 0; }
+.realisation dd ul { margin: 0; padding-left: 1.1rem; }
+.realisation__outils {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+.realisation__outils li {
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--gris-clair);
+  color: var(--bleu-nuit);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+/* L'IA dans mon travail (data/ia.js) */
+.cas-ia { display: flex; flex-direction: column; }
+.cas-ia__icone {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 0.9rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c3aed, var(--bleu-electrique));
+  color: var(--blanc);
+}
+.cas-ia__icone svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cas-ia h3 { font-size: 1.1rem; }
+.cas-ia p { margin: 0.25rem 0 0; }
+.cas-ia__gain { color: #11612d; font-weight: 600; font-size: 0.92rem; }

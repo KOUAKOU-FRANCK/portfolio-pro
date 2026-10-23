@@ -157,3 +157,31 @@
 }
 .photo-cta p { margin: 0; color: var(--photo-doux); }
 .photo-cta__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+/* Formules (photos.js → formules) */
+.photo-formules__note { color: var(--photo-doux); }
+.formules {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+@media (min-width: 768px) {
+  .formules { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+}
+.formule {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.75rem 1.5rem;
+  border: 1px solid #2c3038;
+  border-radius: 18px;
+  background: linear-gradient(160deg, #1c1f24, #15171b);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.formule:hover { transform: translateY(-6px); border-color: #f5d0a9; }
+.formule h3 { margin: 0; font-size: 1.15rem; }
+.formule__prix { margin: 0; color: #f5d0a9; font-size: 1.2rem; font-weight: 700; }
+.formule__inclus { flex: 1; margin: 0; padding-left: 1.1rem; color: var(--photo-doux); }
+.formule .btn { align-self: flex-start; }

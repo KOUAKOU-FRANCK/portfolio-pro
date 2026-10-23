@@ -65,3 +65,8 @@ export const infosPratiques = {
   delai: "À compléter : délai de livraison des photos",
   livraison: "À compléter : galerie en ligne, clé USB…",
 };
+
+// Formules photo avec prix indicatif. La section est masquée tant que la liste est vide.
+// Exemple :
+// { nom: "Essentielle", prix: "à partir de 50 000 FCFA", inclus: ["3 heures de couverture", "100 photos retouchées", "Galerie en ligne"] },
+export const formules = [];

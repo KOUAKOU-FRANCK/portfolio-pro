@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { categories, photosPubliees, prestations, infosPratiques } from "../data/photos.js";
+import { categories, photosPubliees, prestations, infosPratiques, formules } from "../data/photos.js";
 import { whatsappLink } from "../data/profile.js";
 import PhotoGallery from "../components/PhotoGallery.jsx";
 import { useApparition } from "../hooks/useApparition.js";
 import "./Photographie.css";
+import { useDescription } from "../hooks/useDescription.js";
 
 const aCompleter = (texte) => !texte || texte.startsWith("À compléter");
 
@@ -23,6 +24,9 @@ const iconesPrestations = [
 ];
 
 export default function Photographie() {
+  useDescription(
+    "Photographe événementiel à Abidjan : mariages, anniversaires, cérémonies, portraits et reportages. Galerie et demande de prestation."
+  );
   const [categorie, setCategorie] = useState("Toutes");
   useApparition([categorie]);
   const filtrees = categorie === "Toutes" ? photosPubliees : photosPubliees.filter((p) => p.categorie === categorie);
@@ -106,6 +110,36 @@ export default function Photographie() {
           )}
         </div>
       </section>
+
+      {formules.length > 0 && (
+        <section className="section photo-formules">
+          <div className="container">
+            <h2 className="reveal">Formules</h2>
+            <p className="photo-formules__note reveal">Prix indicatifs, ajustés selon la durée et le lieu de l'événement.</p>
+            <ul className="formules reveal">
+              {formules.map((f) => (
+                <li key={f.nom} className="formule">
+                  <h3>{f.nom}</h3>
+                  {f.prix && <p className="formule__prix">{f.prix}</p>}
+                  {f.inclus?.length > 0 && (
+                    <ul className="formule__inclus">
+                      {f.inclus.map((x) => <li key={x}>{x}</li>)}
+                    </ul>
+                  )}
+                  <a
+                    href={whatsappLink(`Bonjour Franck, je souhaite un devis pour la formule « ${f.nom} ».`)}
+                    className="btn btn--light"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Demander un devis
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <section className="section">
         <div className="container">

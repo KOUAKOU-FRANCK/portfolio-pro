@@ -9,6 +9,9 @@ export const profile = {
     "Ma mission : accompagner la transformation numérique, simplifier les processus et aider les organisations à tirer pleinement parti des nouvelles technologies.",
   portrait: "/images/portrait.jpg",
   cv: "/cv.pdf",
+  // Affiché en badge en haut de l'accueil. Laisser vide pour le masquer.
+  // Exemple : "Ouvert aux opportunités : CDI, missions et prestations photo"
+  disponibilite: "",
 
   email: "kkfranck000@gmail.com",
   whatsapp: "2250759751470", // format international sans + ni espaces
