@@ -1,0 +1,235 @@
+/* =====================================================================
+   Thème « Développeur » — éditeur de code et terminal
+   Fond type éditeur sombre, police monospace, couleurs de coloration
+   syntaxique. Pour revenir à l'ancien thème : retirer l'import dans main.jsx.
+   ===================================================================== */
+:root {
+  --dev-fond: #0b0f14;
+  --dev-panneau: #11161d;
+  --dev-panneau-2: #161c25;
+  --dev-bord: #232b36;
+  --dev-texte: #d6deeb;
+  --dev-attenue: #8b96a8;
+  --dev-vert: #7ee787;
+  --dev-bleu: #79c0ff;
+  --dev-violet: #d2a8ff;
+  --dev-orange: #ffa657;
+  --dev-rouge: #ff7b72;
+  --dev-jaune: #e3b341;
+  --mono: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --bleu-nuit: var(--dev-texte);
+  --bleu-electrique: var(--dev-vert);
+  --bleu-electrique-hover: #a6f0ad;
+  --gris-clair: var(--dev-panneau);
+  --gris-bordure: var(--dev-bord);
+  --texte: var(--dev-texte);
+  --texte-doux: var(--dev-attenue);
+  --radius: 10px;
+  --ombre: 0 8px 30px rgba(0, 0, 0, 0.35);
+
+  color: var(--dev-texte);
+  background: var(--dev-fond);
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--dev-fond);
+  /* Grille discrète façon papier millimétré */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--dev-texte);
+}
+
+h1, h2, h3 {
+  font-family: var(--mono);
+  color: var(--dev-texte);
+  letter-spacing: -0.01em;
+}
+h1 { font-weight: 700; }
+h2 { font-weight: 700; font-size: clamp(1.35rem, 3vw, 1.75rem); }
+h3 { font-weight: 600; font-size: 1.05rem; }
+
+/* Titres de section en commentaire de code */
+.section h2::before,
+.page-header h1::before {
+  content: "// ";
+  color: var(--dev-attenue);
+  font-weight: 400;
+}
+
+a { color: var(--dev-bleu); }
+a:hover { color: #a5d6ff; }
+:focus-visible { outline-color: var(--dev-vert); }
+::selection { background: rgba(126, 231, 135, 0.3); }
+
+/* ===== Boutons ===== */
+.btn {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  border-radius: 6px;
+  padding: 0.7rem 1.2rem;
+}
+.btn--primary { background: var(--dev-vert); color: #0b0f14; }
+.btn--primary::before { content: "> "; }
+.btn--primary:hover { background: #a6f0ad; color: #0b0f14; }
+.btn--light,
+.btn--ghost {
+  background: transparent;
+  color: var(--dev-bleu);
+  border: 1px solid var(--dev-bord);
+}
+.btn--light:hover,
+.btn--ghost:hover { background: rgba(121, 192, 255, 0.1); color: #a5d6ff; border-color: var(--dev-bleu); }
+
+.badge { font-family: var(--mono); border-radius: 4px; background: var(--dev-panneau-2); color: var(--dev-texte); border: 1px solid var(--dev-bord); }
+.badge--success { background: rgba(126, 231, 135, 0.12); color: var(--dev-vert); border-color: rgba(126, 231, 135, 0.35); }
+.badge--warning { background: rgba(227, 179, 65, 0.12); color: var(--dev-jaune); border-color: rgba(227, 179, 65, 0.35); }
+.badge--info { background: rgba(121, 192, 255, 0.12); color: var(--dev-bleu); border-color: rgba(121, 192, 255, 0.35); }
+
+/* ===== Navigation : <Nom /> et liens numérotés ===== */
+.navbar {
+  background: rgba(11, 15, 20, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--dev-bord);
+}
+.navbar__brand { font-family: var(--mono); font-size: 0.95rem; }
+.navbar__brand::before { content: "<"; color: var(--dev-rouge); }
+.navbar__brand::after { content: " />"; color: var(--dev-rouge); }
+.navbar__links { counter-reset: lien; }
+.navbar__links li { counter-increment: lien; }
+.navbar__links a { font-family: var(--mono); font-size: 0.85rem; color: var(--dev-attenue); border-radius: 4px; }
+.navbar__links a::before { content: "0" counter(lien) ". "; color: var(--dev-vert); }
+.navbar__links a:hover,
+.navbar__links a.active { color: var(--dev-texte); background: var(--dev-panneau-2); }
+@media (max-width: 900px) {
+  .navbar__links { background: var(--dev-panneau); border-bottom: 1px solid var(--dev-bord); }
+}
+
+/* ===== Accueil : fenêtre de terminal ===== */
+.hero {
+  background: transparent;
+  padding: clamp(3rem, 9vh, 6rem) 0;
+}
+.terminal {
+  max-width: 860px;
+  background: var(--dev-panneau);
+  border: 1px solid var(--dev-bord);
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(126, 231, 135, 0.04);
+  overflow: hidden;
+}
+.terminal__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--dev-panneau-2);
+  border-bottom: 1px solid var(--dev-bord);
+}
+.terminal__dot { width: 12px; height: 12px; border-radius: 50%; }
+.terminal__dot--red { background: #ff5f57; }
+.terminal__dot--yellow { background: #febc2e; }
+.terminal__dot--green { background: #28c840; }
+.terminal__titre { margin-left: auto; margin-right: auto; font-family: var(--mono); font-size: 0.8rem; color: var(--dev-attenue); }
+.terminal__corps { padding: clamp(1.25rem, 4vw, 2.5rem); }
+.terminal__commande {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--dev-attenue);
+  margin: 0 0 0.5rem;
+}
+.terminal__commande::before { content: "$ "; color: var(--dev-vert); }
+.terminal__curseur {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  margin-left: 0.25em;
+  vertical-align: text-bottom;
+  background: var(--dev-vert);
+  animation: clignote 1s steps(1) infinite;
+}
+@keyframes clignote { 50% { opacity: 0; } }
+.hero h1 {
+  font-size: clamp(1.9rem, 5.5vw, 3.2rem);
+  color: var(--dev-vert);
+  margin-bottom: 1.25rem;
+}
+.hero__accroche { color: #ffffff; font-size: clamp(1.2rem, 2.6vw, 1.6rem); }
+.hero__title { font-family: var(--mono); color: var(--dev-orange); font-size: clamp(0.95rem, 2vw, 1.1rem); font-weight: 500; }
+.hero__intro { color: var(--dev-texte); max-width: 680px; margin-bottom: 1.5rem; }
+.hero__actions { margin-top: 1rem; }
+
+.page-header {
+  background: transparent;
+  border-bottom: 1px solid var(--dev-bord);
+  padding: clamp(2.5rem, 7vh, 4rem) 0 1.75rem;
+}
+.page-header h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); }
+
+.section--alt { background: rgba(255, 255, 255, 0.015); border-top: 1px solid var(--dev-bord); border-bottom: 1px solid var(--dev-bord); }
+
+/* ===== Cartes façon panneaux d'éditeur ===== */
+.card,
+.cert-list li,
+.contact-links--large li {
+  background: var(--dev-panneau);
+  border: 1px solid var(--dev-bord);
+  border-radius: var(--radius);
+  box-shadow: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.card:hover { border-color: rgba(126, 231, 135, 0.45); transform: translateY(-2px); }
+.domain-card,
+.domain-card--photo { border-top: 1px solid var(--dev-bord); }
+.domain-card h3::before { content: "▸ "; color: var(--dev-vert); }
+.skill-card h3 { color: var(--dev-violet); }
+.skill-card__list li { border-bottom-color: var(--dev-bord); }
+.skill-card__list li span:first-child::before { content: "– "; color: var(--dev-attenue); }
+.project-card img { border-bottom: 1px solid var(--dev-bord); }
+.project-card h3 { color: var(--dev-bleu); }
+.project-card__details dt { font-family: var(--mono); font-size: 0.85rem; color: var(--dev-violet); }
+.project-card__details dt::after { content: ":"; }
+.tags li {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  background: rgba(255, 166, 87, 0.08);
+  color: var(--dev-orange);
+  border: 1px solid rgba(255, 166, 87, 0.25);
+  border-radius: 4px;
+}
+
+.cert-list li { border-left: 3px solid var(--dev-vert); }
+.cert-list__nom { color: var(--dev-texte); }
+.cert-list__lien { font-family: var(--mono); }
+
+.timeline { border-left-color: var(--dev-bord); }
+.timeline li::before { background: var(--dev-fond); border-color: var(--dev-vert); }
+.timeline__periode { font-family: var(--mono); font-size: 0.85rem; color: var(--dev-vert); }
+.timeline__sous-titre { font-family: var(--mono); font-size: 0.9rem; color: var(--dev-violet); }
+.about__portrait { border-radius: var(--radius); border: 1px solid var(--dev-bord); }
+
+.contact-links__label { font-family: var(--mono); color: var(--dev-violet); opacity: 1; }
+
+/* ===== Pied de page ===== */
+.footer { background: var(--dev-panneau); border-top: 1px solid var(--dev-bord); color: var(--dev-attenue); }
+.footer__name { font-family: var(--mono); color: var(--dev-texte); }
+.footer__bottom { font-family: var(--mono); font-size: 0.8rem; border-top-color: var(--dev-bord); }
+
+/* ===== Photographie : sobre, centrée sur les images ===== */
+.theme-photo { background: #07090c; }
+.theme-photo .page-header { background: transparent; }
+.theme-photo .card { background: var(--dev-panneau); }
+.filter { font-family: var(--mono); font-size: 0.85rem; border-color: var(--dev-bord); border-radius: 4px; }
+.filter[aria-pressed="true"] { background: var(--dev-vert); color: #0b0f14; border-color: var(--dev-vert); }
+.gallery__item { border-radius: 8px; }
+
+.skip-link { background: var(--dev-vert); color: #0b0f14; }
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal__curseur { animation: none; }
+  .card:hover { transform: none; }
+}

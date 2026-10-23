@@ -15,18 +15,32 @@ export default function Accueil() {
 
       <section className="hero">
         <div className="container hero__inner">
-          <p className="hero__eyebrow">Portfolio</p>
-          <h1>{profile.nom}</h1>
-          <p className="hero__accroche">{profile.accroche}</p>
-          <p className="hero__title">{profile.domaines}</p>
-          <p className="hero__intro">{profile.introduction}</p>
-          <div className="hero__actions">
-            <Link to="/informatique" className="btn btn--primary">
-              Découvrir mes compétences
-            </Link>
-            <Link to="/photographie" className="btn btn--light">
-              Voir mes photographies
-            </Link>
+          <div className="terminal">
+            <div className="terminal__bar" aria-hidden="true">
+              <span className="terminal__dot terminal__dot--red" />
+              <span className="terminal__dot terminal__dot--yellow" />
+              <span className="terminal__dot terminal__dot--green" />
+              <span className="terminal__titre">franck@portfolio: ~</span>
+            </div>
+            <div className="terminal__corps">
+              <p className="terminal__commande" aria-hidden="true">whoami</p>
+              <h1>{profile.nom}</h1>
+              <p className="terminal__commande" aria-hidden="true">cat profil.txt</p>
+              <p className="hero__accroche">{profile.accroche}</p>
+              <p className="hero__title">{profile.domaines}</p>
+              <p className="hero__intro">{profile.introduction}</p>
+              <p className="terminal__commande" aria-hidden="true">
+                ls ./competences ./photographies<span className="terminal__curseur" />
+              </p>
+              <div className="hero__actions">
+                <Link to="/informatique" className="btn btn--primary">
+                  Découvrir mes compétences
+                </Link>
+                <Link to="/photographie" className="btn btn--light">
+                  Voir mes photographies
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
