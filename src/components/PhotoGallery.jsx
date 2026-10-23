@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 // Galerie avec visionneuse agrandie.
 // La visionneuse utilise l'élément natif <dialog> : Échap ferme, les flèches changent de photo.
-export default function PhotoGallery({ photos }) {
+export default function PhotoGallery({ photos, variante = "" }) {
   const [index, setIndex] = useState(null);
   const dialogRef = useRef(null);
   const photo = index !== null ? photos[index] : null;
@@ -27,11 +27,12 @@ export default function PhotoGallery({ photos }) {
 
   return (
     <>
-      <ul className="gallery">
+      <ul className={`gallery${variante ? ` gallery--${variante}` : ""}`}>
         {photos.map((p, i) => (
           <li key={p.id}>
             <button type="button" className="gallery__item" onClick={() => setIndex(i)}>
               <img src={p.miniature} alt={p.alt} width={p.largeur} height={p.hauteur} loading="lazy" />
+              <span className="gallery__legende" aria-hidden="true">{p.categorie}</span>
               <span className="sr-only">Agrandir la photo</span>
             </button>
           </li>

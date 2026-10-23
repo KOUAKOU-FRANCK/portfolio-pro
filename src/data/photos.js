@@ -20,6 +20,7 @@ const exemple = (fichier, categorie, n) => ({
   largeur: 800,
   hauteur: 600,
   vedette: n === 1,
+  exemple: true, // image provisoire : non affichée sur le site
 });
 
 const photo = (id, categorie, alt, largeur, hauteur, vedette = false) => ({
@@ -48,6 +49,9 @@ export const photos = [
   exemple("reportages", "Reportages", 1),
   exemple("reportages", "Reportages", 2),
 ];
+
+// Photos réellement affichées (les images d'exemple sont masquées).
+export const photosPubliees = photos.filter((p) => !p.exemple);
 
 // Prestations photographiques. À FAIRE : adapter à votre offre réelle.
 export const prestations = [

@@ -1,69 +1,126 @@
 import { useState } from "react";
-import { categories, photos, prestations, infosPratiques } from "../data/photos.js";
+import { Link } from "react-router-dom";
+import { categories, photosPubliees, prestations, infosPratiques } from "../data/photos.js";
+import { whatsappLink } from "../data/profile.js";
 import PhotoGallery from "../components/PhotoGallery.jsx";
-import ContactLinks from "../components/ContactLinks.jsx";
+import { useApparition } from "../hooks/useApparition.js";
+import "./Photographie.css";
+
+const aCompleter = (texte) => !texte || texte.startsWith("À compléter");
+
+// Seules les catégories qui contiennent des photos sont proposées en filtre.
+const categoriesPubliees = categories.filter((c) => photosPubliees.some((p) => p.categorie === c));
+const photoEntete = photosPubliees.find((p) => p.vedette) ?? photosPubliees[0];
+const messagePrestation = "Bonjour Franck, je souhaite réserver une prestation photo pour un événement.";
+
+const Icone = ({ children }) => (
+  <svg viewBox="0 0 24 24" aria-hidden="true">{children}</svg>
+);
+const iconesPrestations = [
+  <Icone key="1"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z" /></Icone>,
+  <Icone key="2"><path d="M5 21h14M7 21V11h10v10M12 11V8M12 8c-1 0-1.5-1-1.5-2S12 3 12 3s1.5 2 1.5 3-.5 2-1.5 2z" /></Icone>,
+  <Icone key="3"><path d="M4 8h3l2-3h6l2 3h3v11H4z" /><circle cx="12" cy="13" r="3.5" /></Icone>,
+];
 
 export default function Photographie() {
   const [categorie, setCategorie] = useState("Toutes");
-  const filtrees = categorie === "Toutes" ? photos : photos.filter((p) => p.categorie === categorie);
+  useApparition([categorie]);
+  const filtrees = categorie === "Toutes" ? photosPubliees : photosPubliees.filter((p) => p.categorie === categorie);
+  const infos = [
+    { libelle: "Zone", valeur: infosPratiques.zone },
+    { libelle: "Délai", valeur: infosPratiques.delai },
+    { libelle: "Livraison", valeur: infosPratiques.livraison },
+  ].filter((i) => !aCompleter(i.valeur));
 
   return (
     <div className="theme-photo">
       <title>Photographie événementielle — Kouakou Kouadio Franck</title>
-      <section className="page-header">
-        <div className="container">
-          <h1>Photographie événementielle</h1>
-          <p>
-            Mariages, anniversaires, cérémonies, portraits et reportages. À compléter : présentez ici
-            votre approche et votre activité de photographe.
+
+      <section className="photo-hero">
+        {photoEntete && (
+          <img className="photo-hero__image" src={photoEntete.src} alt="" width={photoEntete.largeur} height={photoEntete.hauteur} />
+        )}
+        <div className="container photo-hero__contenu">
+          <p className="photo-hero__eyebrow entree">Photographie événementielle</p>
+          <h1 className="entree" style={{ "--d": 1 }}>Immortaliser vos moments importants</h1>
+          <p className="photo-hero__intro entree" style={{ "--d": 2 }}>
+            Mariages, anniversaires, cérémonies, portraits et reportages : des images qui racontent
+            vos plus beaux souvenirs.
           </p>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <h2>Galerie</h2>
-          <div className="filters" role="group" aria-label="Filtrer par catégorie">
-            {["Toutes", ...categories].map((c) => (
-              <button
-                key={c}
-                type="button"
-                className="filter"
-                aria-pressed={categorie === c}
-                onClick={() => setCategorie(c)}
-              >
-                {c}
-              </button>
-            ))}
+          <div className="photo-hero__actions entree" style={{ "--d": 3 }}>
+            <a href="#galerie" className="btn btn--light">Voir la galerie</a>
+            <a href={whatsappLink(messagePrestation)} className="btn btn--ghost-clair" target="_blank" rel="noopener noreferrer">
+              Demander une prestation
+            </a>
           </div>
-          <PhotoGallery key={categorie} photos={filtrees} />
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="galerie">
         <div className="container">
-          <h2>Mes prestations</h2>
-          <div className="grid grid--3">
-            {prestations.map((p) => (
-              <article key={p.titre} className="card">
+          <div className="photo-galerie__entete reveal">
+            <h2>Galerie</h2>
+            {categoriesPubliees.length > 1 && (
+              <div className="filters" role="group" aria-label="Filtrer par catégorie">
+                {["Toutes", ...categoriesPubliees].map((c) => (
+                  <button
+                    key={c}
+                    type="button"
+                    className="filter"
+                    aria-pressed={categorie === c}
+                    onClick={() => setCategorie(c)}
+                  >
+                    {c}
+                    <span className="filter__nombre">
+                      {c === "Toutes" ? photosPubliees.length : photosPubliees.filter((p) => p.categorie === c).length}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+          <div className="reveal" key={categorie}>
+            <PhotoGallery photos={filtrees} variante="mosaique" />
+          </div>
+        </div>
+      </section>
+
+      <section className="section photo-prestations">
+        <div className="container">
+          <h2 className="reveal">Mes prestations</h2>
+          <ul className="prestations reveal">
+            {prestations.map((p, i) => (
+              <li key={p.titre} className="prestation">
+                <span className="prestation__icone">{iconesPrestations[i % iconesPrestations.length]}</span>
                 <h3>{p.titre}</h3>
-                <p>{p.texte}</p>
-              </article>
+                {!aCompleter(p.texte) && <p>{p.texte}</p>}
+              </li>
             ))}
-          </div>
-          <dl className="infos">
-            <div><dt>Zone</dt><dd>{infosPratiques.zone}</dd></div>
-            <div><dt>Délai</dt><dd>{infosPratiques.delai}</dd></div>
-            <div><dt>Livraison</dt><dd>{infosPratiques.livraison}</dd></div>
-          </dl>
+          </ul>
+          {infos.length > 0 && (
+            <dl className="infos reveal">
+              {infos.map((i) => (
+                <div key={i.libelle}><dt>{i.libelle}</dt><dd>{i.valeur}</dd></div>
+              ))}
+            </dl>
+          )}
         </div>
       </section>
 
       <section className="section">
-        <div className="container cta">
-          <h2>Un événement à immortaliser ?</h2>
-          <p>Contactez-moi pour une demande de prestation.</p>
-          <ContactLinks message="Bonjour, je souhaite une prestation photo pour un événement." />
+        <div className="container">
+          <div className="photo-cta reveal">
+            <div>
+              <h2>Un événement à immortaliser ?</h2>
+              <p>Parlez-moi de votre date, du lieu et de vos envies.</p>
+            </div>
+            <div className="photo-cta__actions">
+              <a href={whatsappLink(messagePrestation)} className="btn btn--light" target="_blank" rel="noopener noreferrer">
+                Écrire sur WhatsApp
+              </a>
+              <Link to="/contact" className="btn btn--ghost-clair">Autres moyens de contact</Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>

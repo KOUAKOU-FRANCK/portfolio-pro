@@ -480,9 +480,25 @@ ul { padding-left: 1.2rem; }
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  transition: transform 0.3s;
+  transition: transform 0.5s;
 }
 .gallery__item:hover img { transform: scale(1.04); }
+.gallery__item { position: relative; }
+.gallery__legende {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 2rem 1rem 0.75rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: var(--blanc);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.gallery__item:hover .gallery__legende,
+.gallery__item:focus-visible .gallery__legende { opacity: 1; transform: none; }
 
 .lightbox {
   border: 0;

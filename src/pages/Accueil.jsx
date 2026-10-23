@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { profile } from "../data/profile.js";
 import { visibleProjects } from "../data/projects.js";
-import { photos } from "../data/photos.js";
+import { photosPubliees } from "../data/photos.js";
 import ProjectCard from "../components/ProjectCard.jsx";
 import PhotoGallery from "../components/PhotoGallery.jsx";
 import "./Accueil.css";
@@ -45,7 +45,7 @@ const IconeAppareil = () => (
 export default function Accueil() {
   useApparition();
   const projetsVedette = visibleProjects.filter((p) => p.vedette).slice(0, 3);
-  const photosVedette = photos.filter((p) => p.vedette).slice(0, 6);
+  const photosVedette = photosPubliees.filter((p) => p.vedette).slice(0, 6);
   const domaines = profile.domaines.split(" · ");
 
   return (
