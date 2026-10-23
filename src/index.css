@@ -352,16 +352,6 @@ ul { padding-left: 1.2rem; }
 .contact-links__label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.75; }
 .contact-links a { overflow-wrap: anywhere; }
 
-.contact-links--large { flex-direction: column; gap: 1rem; }
-.contact-links--large li {
-  padding: 1.25rem 1.5rem;
-  border: 1px solid var(--gris-bordure);
-  border-radius: var(--radius);
-  box-shadow: var(--ombre);
-  max-width: 520px;
-}
-.contact-links--large a { font-size: 1.1rem; font-weight: 600; }
-
 /* ===== Pied de page ===== */
 .footer { background: var(--bleu-nuit); color: #c3cee0; padding: 2.5rem 0 1rem; }
 .footer a { color: var(--blanc); }
