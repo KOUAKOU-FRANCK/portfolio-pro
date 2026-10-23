@@ -97,8 +97,8 @@ export default function Apropos() {
             className="about__portrait"
             src={profile.portrait}
             alt={`Portrait de ${profile.nom}`}
-            width="271"
-            height="339"
+            width="800"
+            height="1001"
           />
           <div>
             <h2>{profile.accroche}</h2>
