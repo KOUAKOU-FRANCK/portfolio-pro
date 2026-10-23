@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { profile } from "../data/profile.js";
 import { visibleProjects } from "../data/projects.js";
 import { photosPubliees } from "../data/photos.js";
+import { temoignages } from "../data/temoignages.js";
 import ProjectCard from "../components/ProjectCard.jsx";
 import PhotoGallery from "../components/PhotoGallery.jsx";
 import "./Accueil.css";
 import { useApparition, mouvementReduit } from "../hooks/useApparition.js";
+import { useDescription } from "../hooks/useDescription.js";
 
 // Nombre qui défile de 0 à sa valeur quand il devient visible.
 function Compteur({ valeur }) {
@@ -43,6 +45,9 @@ const IconeAppareil = () => (
 );
 
 export default function Accueil() {
+  useDescription(
+    "Kouakou Kouadio Franck, technicien supérieur en informatique à Abidjan : gestion de projets IT, développement d'applications, cybersécurité et intelligence artificielle. Également photographe événementiel."
+  );
   useApparition();
   const projetsVedette = visibleProjects.filter((p) => p.vedette).slice(0, 3);
   const photosVedette = photosPubliees.filter((p) => p.vedette).slice(0, 6);
@@ -64,6 +69,12 @@ export default function Accueil() {
               <span className="accueil-hero__point" aria-hidden="true" />
               Portfolio · Abidjan, Côte d'Ivoire
             </p>
+            {profile.disponibilite && (
+              <p className="accueil-dispo entree" style={{ "--d": 0.5 }}>
+                <span className="accueil-dispo__point" aria-hidden="true" />
+                {profile.disponibilite}
+              </p>
+            )}
             <h1 className="entree" style={{ "--d": 1 }}>{profile.nom}</h1>
             <p className="hero__accroche accueil-hero__accroche entree" style={{ "--d": 2 }}>
               {profile.accroche}
@@ -185,7 +196,27 @@ export default function Accueil() {
         </div>
       </section>
 
-      <section className="section section--alt">
+      {temoignages.length > 0 && (
+        <section className="section section--alt">
+          <div className="container">
+            <h2 className="reveal">Ils m'ont fait confiance</h2>
+            <div className="grid grid--3">
+              {temoignages.map((t, i) => (
+                <figure key={t.auteur + i} className="card temoignage reveal" style={{ "--d": i }}>
+                  <span className="badge badge--info">{t.domaine === "photo" ? "Photographie" : "Informatique"}</span>
+                  <blockquote>« {t.texte} »</blockquote>
+                  <figcaption>
+                    <strong>{t.auteur}</strong>
+                    {t.role && <span>{t.role}</span>}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className={`section${temoignages.length > 0 ? "" : " section--alt"}`}>
         <div className="container cta reveal">
           <h2>Mon CV</h2>
           <p>Retrouvez mon parcours, ma formation et mes expériences.</p>
