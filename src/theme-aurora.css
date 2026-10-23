@@ -143,6 +143,7 @@ a:hover { color: #c7d2fe; }
   font-size: 0.75rem;
   margin-bottom: 1.5rem;
 }
+.hero__accroche { color: var(--texte-clair); }
 .hero__title { color: #dfe3f3; font-size: clamp(1.05rem, 2.2vw, 1.3rem); }
 .hero__intro { color: var(--texte-attenue); max-width: 680px; margin-left: auto; margin-right: auto; }
 .hero__actions { justify-content: center; }

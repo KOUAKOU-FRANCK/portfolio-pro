@@ -241,6 +241,7 @@ ul { padding-left: 1.2rem; }
   color: #8fb4ff;
   margin-bottom: 0.5rem;
 }
+.hero__accroche { font-size: clamp(1.35rem, 3vw, 1.9rem); font-weight: 700; line-height: 1.25; color: var(--blanc); margin-bottom: 0.5rem; }
 .hero__title { font-size: 1.2rem; font-weight: 600; color: #d5deec; }
 .hero__intro { max-width: 640px; color: #c3cee0; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
@@ -320,6 +321,8 @@ ul { padding-left: 1.2rem; }
   .about { grid-template-columns: 280px 1fr; }
 }
 .about__portrait { border-radius: var(--radius); width: 100%; max-width: 320px; }
+.about__domaines { color: var(--bleu-electrique); font-weight: 600; margin-bottom: 1rem; }
+.about__mission { border-left: 4px solid var(--bleu-electrique); padding-left: 1rem; }
 
 .timeline { list-style: none; padding: 0; margin: 0; border-left: 3px solid var(--bleu-electrique); }
 .timeline li { position: relative; padding: 0 0 1.5rem 1.5rem; }

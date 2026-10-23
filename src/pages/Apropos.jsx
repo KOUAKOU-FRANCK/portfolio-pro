@@ -7,6 +7,8 @@ const parcours = [
     titre: "Technicien supérieur en informatique — CDI",
     lieu: "Mairie de Port-Bouët, Abidjan, Côte d'Ivoire",
     missions: [
+      "Gestion des projets informatiques : conception, déploiement et suivi de solutions numériques.",
+      "Support informatique auprès de Monsieur le Député-Maire de la commune de Port-Bouët.",
       "Support technique quotidien des utilisateurs et traitement des incidents matériels et logiciels.",
       "Installation, configuration et maintenance des ordinateurs, imprimantes, routeurs et équipements.",
       "Maintenance préventive et corrective, suivi et inventaire du parc informatique.",
@@ -99,37 +101,45 @@ export default function Apropos() {
             height="339"
           />
           <div>
-            <h2>Qui suis-je ?</h2>
+            <h2>{profile.accroche}</h2>
+            <p className="about__domaines">{profile.domaines}</p>
             <p>
-              Technicien supérieur en informatique, je suis titulaire d'un BTS Informatique, option
-              Développement d'Applications. Depuis août 2023, j'occupe un poste de technicien
-              supérieur en informatique (CDI) à la <strong>Mairie de Port-Bouët</strong>, à Abidjan.
+              Technicien supérieur en informatique, titulaire d’un BTS Informatique, option
+              Développement d’Applications, j’exerce depuis août 2023 à la{" "}
+              <strong>Mairie de Port-Bouët</strong>, où je contribue à la transformation numérique
+              des services municipaux.
             </p>
             <p>
-              Au quotidien, j'assure le support des utilisateurs, la maintenance du parc informatique,
-              le dépannage du réseau local et la sécurisation des postes : antivirus, pare-feu,
-              sauvegardes et contrôle des accès. J'ai également conçu et déployé des logiciels pour
-              les services municipaux, notamment pour la délivrance des certificats de résidence et
-              des certificats administratifs, avec des documents PDF authentifiés par QR code.
+              Actuellement chargé de la gestion des projets informatiques, j’interviens dans la
+              conception, le déploiement et le suivi de solutions numériques. J’assure également le
+              support informatique auprès de Monsieur le Député-Maire de la commune de Port-Bouët.
             </p>
             <p>
-              La sécurité informatique tient une place importante dans mon parcours. Une formation en
-              hacking éthique (CEH) m'a appris à identifier les vulnérabilités des systèmes et les
-              moyens de les corriger, et ma certification <strong>CSCU</strong> (Certified Secure
-              Computer User) atteste de mes compétences en cybersécurité. Une formation aux
-              compétences numériques fondamentales m'a aussi permis de renforcer la gestion de
-              projet, la résolution de problèmes et le travail en équipe.
+              Passionné par l’innovation technologique, je développe mes compétences en intelligence
+              artificielle afin d’accompagner les entreprises et les organisations dans
+              l’identification de leurs besoins, l’intégration de solutions IA et l’automatisation de
+              leurs processus métier.
             </p>
             <p>
-              Je me forme également à l'intelligence artificielle : en octobre 2026, j'ai obtenu
-              <strong> six certifications Claude Academy d'Anthropic</strong>, dont Claude Code 101,
-              Claude Code in action et Claude Platform 101, pour intégrer l'IA dans le développement
-              d'applications et l'automatisation des tâches.
+              Mon objectif est de{" "}
+              <strong>rendre l’intelligence artificielle accessible, utile et concrète</strong>, en
+              aidant les organisations à comprendre son potentiel, à identifier les opportunités
+              d’application et à intégrer des outils adaptés à leurs activités.
             </p>
             <p>
-              Passionné de technologie, je souhaite mettre ces compétences au service d'une
-              entreprise ou d'une organisation pour l'aider à atteindre ses objectifs numériques. En
-              parallèle, je pratique la photographie événementielle.
+              Mes compétences en développement d’applications, en cybersécurité et en gestion de
+              projets me permettent d’aborder ces enjeux avec une vision à la fois technique, pratique
+              et orientée vers les résultats.
+            </p>
+            <p>
+              En parallèle, je pratique la photographie événementielle, qui reflète mon esprit créatif
+              et mon souci du détail.
+            </p>
+            <p className="about__mission">
+              <strong>
+                Ma mission : accompagner la transformation numérique, simplifier les processus et
+                aider les organisations à tirer pleinement parti des nouvelles technologies.
+              </strong>
             </p>
             <div className="hero__actions">
               <a href={profile.cv} className="btn btn--primary" download>
