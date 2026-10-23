@@ -58,6 +58,33 @@ export const projects = [
     afficher: true,
   },
   {
+    id: "finarchive",
+    nom: "FINARCHIVE — Archivage des documents financiers",
+    image: "/images/projets/finarchive.webp",
+    probleme:
+      "La Mairie de Port-Bouët doit conserver ses documents financiers (factures, pièces comptables, liquidations), les retrouver rapidement et faire valider chaque pièce par la direction.",
+    objectifs: [
+      "Centraliser et archiver les documents financiers en garantissant leur intégrité",
+      "Mettre en place un circuit de validation traçable entre le comptable et le directeur",
+      "Donner à la direction des tableaux de bord et des rapports",
+    ],
+    fonctionnalites: [
+      "Dépôt de fichiers (PDF, Excel, Word, image) ou de documents scannés, avec empreinte SHA-256 pour vérifier qu'ils n'ont pas été modifiés",
+      "Référence unique, catégories imbriquées, montant, fournisseur, numéro de facture, exercice fiscal et indicateur « confidentiel »",
+      "Recherche plein texte, prévisualisation et téléchargement des fichiers",
+      "Circuit de validation : brouillon → en attente → validé ou rejeté (commentaire obligatoire), avec historique et notifications",
+      "Liquidations (montant en chiffres et en lettres, chapitre, article) imprimables et exportables en PDF",
+      "Tableau de bord exportable en PDF, page Analytics et journal des accès aux documents",
+    ],
+    technologies: ["Laravel", "PHP", "MySQL"],
+    role: "Conception et développement complet",
+    statut: "en cours", // À confirmer avec Franck : terminé ?
+    demo: null,
+    github: null, // Le dépôt public ne contient pas encore le code
+    vedette: true,
+    afficher: true,
+  },
+  {
     id: "ma-mutuelle",
     nom: "Ma Mutuelle",
     image: "/images/projets/exemple.svg",
@@ -128,21 +155,6 @@ export const projects = [
     github: "https://github.com/KOUAKOU-FRANCK/MonApp2",
     vedette: false,
     afficher: false, // À confirmer : afficher ce projet ?
-  },
-  {
-    id: "finarchive",
-    nom: "FINARCHIVE",
-    image: "/images/projets/exemple.svg",
-    probleme: "À compléter",
-    objectifs: ["À compléter"],
-    fonctionnalites: ["À compléter"],
-    technologies: ["Laravel"],
-    role: "À compléter",
-    statut: "en cours",
-    demo: null,
-    github: "https://github.com/KOUAKOU-FRANCK/FINARCHIVE",
-    vedette: false,
-    afficher: false, // Le dépôt ne contient pas encore de code : masqué pour l'instant.
   },
 ];
 
