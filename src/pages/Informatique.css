@@ -203,8 +203,6 @@
 }
 .realisations__chiffres strong { font-size: 1.8rem; color: var(--bleu-nuit); line-height: 1.1; }
 .realisations__chiffres span { color: var(--texte-doux); font-size: 0.92rem; }
-.realisation { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.realisation:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(11, 29, 58, 0.12); }
 .realisation img {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -214,25 +212,7 @@
   background: var(--gris-clair);
 }
 .realisation h3 { font-size: 1.15rem; }
-.realisation dt { font-weight: 600; color: var(--bleu-nuit); margin-top: 0.75rem; }
-.realisation dd { margin: 0.25rem 0 0; }
-.realisation dd ul { margin: 0; padding-left: 1.1rem; }
-.realisation__outils {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0;
-}
-.realisation__outils li {
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  background: var(--gris-clair);
-  color: var(--bleu-nuit);
-  font-size: 0.82rem;
-  font-weight: 500;
-}
+.realisation dd ul { padding-left: 1.1rem; }
 
 /* L'IA dans mon travail (data/ia.js) */
 .cas-ia { display: flex; flex-direction: column; }

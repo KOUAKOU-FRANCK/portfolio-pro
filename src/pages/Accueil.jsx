@@ -202,7 +202,7 @@ export default function Accueil() {
             <h2 className="reveal">Ils m'ont fait confiance</h2>
             <div className="grid grid--3">
               {temoignages.map((t, i) => (
-                <figure key={t.auteur + i} className="card temoignage reveal" style={{ "--d": i }}>
+                <figure key={t.auteur + i} className="card card--lift temoignage reveal" style={{ "--d": i }}>
                   <span className="badge badge--info">{t.domaine === "photo" ? "Photographie" : "Informatique"}</span>
                   <blockquote>« {t.texte} »</blockquote>
                   <figcaption>

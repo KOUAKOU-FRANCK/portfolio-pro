@@ -117,10 +117,10 @@ export default function Informatique() {
             )}
             <div className="grid grid--2">
               {realisations.map((r, i) => (
-                <article key={r.titre} className="card realisation reveal" style={{ "--d": i % 2 }}>
+                <article key={r.titre} className="card card--lift realisation reveal" style={{ "--d": i % 2 }}>
                   {r.image && <img src={r.image} alt="" loading="lazy" />}
                   <h3>{r.titre}</h3>
-                  <dl>
+                  <dl className="project-card__details">
                     {r.contexte && (<><dt>Contexte</dt><dd>{r.contexte}</dd></>)}
                     {r.actions?.length > 0 && (
                       <>
@@ -131,7 +131,7 @@ export default function Informatique() {
                     {r.resultat && (<><dt>Résultat</dt><dd>{r.resultat}</dd></>)}
                   </dl>
                   {r.outils?.length > 0 && (
-                    <ul className="realisation__outils">
+                    <ul className="tags">
                       {r.outils.map((o) => <li key={o}>{o}</li>)}
                     </ul>
                   )}
@@ -172,7 +172,7 @@ export default function Informatique() {
                   <p>{c.texte}</p>
                   {c.gain && <p className="cas-ia__gain">{c.gain}</p>}
                   {c.outils?.length > 0 && (
-                    <ul className="realisation__outils">
+                    <ul className="tags">
                       {c.outils.map((o) => <li key={o}>{o}</li>)}
                     </ul>
                   )}
