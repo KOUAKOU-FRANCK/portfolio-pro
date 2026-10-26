@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-export const SITE = "https://franck-kouakou.vercel.app";
+const SITE = "https://franck-kouakou.vercel.app";
 
 // Met à jour la description et l'adresse canonique de la page affichée.
 // Le titre, lui, est posé par la balise <title> de chaque page.

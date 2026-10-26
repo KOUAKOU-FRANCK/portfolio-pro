@@ -116,9 +116,9 @@ export default function Photographie() {
           <div className="container">
             <h2 className="reveal">Formules</h2>
             <p className="photo-formules__note reveal">Prix indicatifs, ajustés selon la durée et le lieu de l'événement.</p>
-            <ul className="formules reveal">
+            <ul className="prestations formules reveal">
               {formules.map((f) => (
-                <li key={f.nom} className="formule">
+                <li key={f.nom} className="prestation formule">
                   <h3>{f.nom}</h3>
                   {f.prix && <p className="formule__prix">{f.prix}</p>}
                   {f.inclus?.length > 0 && (
