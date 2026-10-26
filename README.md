@@ -48,9 +48,9 @@ Remplissez la liste correspondante et la section apparaît d'elle-même (un exem
 
 ### Référencement et statistiques
 
-- `public/robots.txt` et `public/sitemap.xml` (à mettre à jour si une page est ajoutée)
-- Données structurées (profil + activité photo) dans `index.html`
-- Description propre à chaque page via `useDescription()` (`src/hooks/useDescription.js`)
+- Titre et description de chaque page dans `src/data/pages.js` (adresse du site : `SITE` dans ce même fichier)
+- Au build, `plugins/seo.js` génère à partir de ce fichier une page HTML par adresse, `404.html`, `sitemap.xml` et `robots.txt` : pour ajouter une page, l'ajouter dans `src/data/pages.js` et dans les routes de `src/App.jsx`
+- Données structurées (profil + activité photo) générées depuis `src/data/profile.js` : modifier vos coordonnées à cet endroit suffit
 - Statistiques : activer **Analytics** dans le projet Vercel (onglet Analytics → Enable)
 - Google Search Console : ajouter le site, puis soumettre `https://franck-kouakou.vercel.app/sitemap.xml`
 

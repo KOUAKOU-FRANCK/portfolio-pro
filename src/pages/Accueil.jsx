@@ -8,7 +8,6 @@ import ProjectCard from "../components/ProjectCard.jsx";
 import PhotoGallery from "../components/PhotoGallery.jsx";
 import "./Accueil.css";
 import { useApparition, mouvementReduit } from "../hooks/useApparition.js";
-import { useDescription } from "../hooks/useDescription.js";
 
 // Nombre qui défile de 0 à sa valeur quand il devient visible.
 function Compteur({ valeur }) {
@@ -45,9 +44,6 @@ const IconeAppareil = () => (
 );
 
 export default function Accueil() {
-  useDescription(
-    "Kouakou Kouadio Franck, technicien supérieur en informatique à Abidjan : gestion de projets IT, développement d'applications, cybersécurité et intelligence artificielle. Également photographe événementiel."
-  );
   useApparition();
   const projetsVedette = visibleProjects.filter((p) => p.vedette).slice(0, 3);
   const photosVedette = photosPubliees.filter((p) => p.vedette).slice(0, 6);
@@ -55,8 +51,6 @@ export default function Accueil() {
 
   return (
     <>
-      <title>Kouakou Kouadio Franck — Informatique & Photographie</title>
-
       <section className="hero accueil-hero">
         <div className="accueil-hero__fond" aria-hidden="true">
           <span className="accueil-hero__halo accueil-hero__halo--1" />
