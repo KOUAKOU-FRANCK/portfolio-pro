@@ -16,6 +16,8 @@
 
     <!-- Aperçu des liens partagés (WhatsApp, LinkedIn, Facebook).
          Ces balises doivent rester ici : les réseaux sociaux n'exécutent pas le JavaScript.
+         Titre, description et adresse de chaque page sont remplacés au build depuis src/data/pages.js.
+         __SITE__ est remplacé par l'adresse du site (SITE dans src/data/pages.js).
          Image de partage : public/images/partage.png (1200×630), à remplacer si vous le souhaitez. -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
@@ -24,54 +26,13 @@
       property="og:description"
       content="Je transforme les idées en solutions innovantes : gestion de projets IT, développement d'applications, cybersécurité et intelligence artificielle."
     />
-    <meta property="og:url" content="https://franck-kouakou.vercel.app/" />
-    <meta property="og:image" content="https://franck-kouakou.vercel.app/images/partage.png" />
+    <meta property="og:url" content="__SITE__/" />
+    <meta property="og:image" content="__SITE__/images/partage.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="canonical" href="https://franck-kouakou.vercel.app/" />
+    <link rel="canonical" href="__SITE__/" />
 
-    <!-- Données structurées : aident Google à comprendre qui vous êtes (profil + activité photo). -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Person",
-            "@id": "https://franck-kouakou.vercel.app/#franck",
-            "name": "Kouakou Kouadio Franck",
-            "jobTitle": "Technicien supérieur en informatique",
-            "url": "https://franck-kouakou.vercel.app/",
-            "image": "https://franck-kouakou.vercel.app/images/portrait.jpg",
-            "email": "mailto:kkfranck000@gmail.com",
-            "worksFor": { "@type": "GovernmentOrganization", "name": "Mairie de Port-Bouët" },
-            "address": { "@type": "PostalAddress", "addressLocality": "Abidjan", "addressCountry": "CI" },
-            "knowsAbout": [
-              "Support informatique",
-              "Maintenance informatique",
-              "Systèmes et réseaux",
-              "Développement d'applications web",
-              "Cybersécurité",
-              "Intelligence artificielle",
-              "Photographie événementielle"
-            ],
-            "sameAs": [
-              "https://www.linkedin.com/in/franck-kouakou-741382256/",
-              "https://github.com/KOUAKOU-FRANCK"
-            ]
-          },
-          {
-            "@type": "ProfessionalService",
-            "name": "Kouakou Kouadio Franck — Photographie événementielle",
-            "description": "Photographe événementiel à Abidjan : mariages, anniversaires, cérémonies, portraits et reportages.",
-            "url": "https://franck-kouakou.vercel.app/photographie",
-            "image": "https://franck-kouakou.vercel.app/images/partage.png",
-            "founder": { "@id": "https://franck-kouakou.vercel.app/#franck" },
-            "address": { "@type": "PostalAddress", "addressLocality": "Abidjan", "addressCountry": "CI" },
-            "areaServed": "Abidjan",
-            "telephone": "+2250759751470"
-          }
-        ]
-      }
-    </script>
+    <!-- Données structurées (profil + activité photo), générées depuis src/data/profile.js par plugins/seo.js. -->
+    <!-- donnees-structurees -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

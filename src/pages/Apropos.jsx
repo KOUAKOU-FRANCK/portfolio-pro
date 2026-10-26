@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { profile } from "../data/profile.js";
 import { useApparition } from "../hooks/useApparition.js";
 import "./Apropos.css";
-import { useDescription } from "../hooks/useDescription.js";
 
 const parcours = [
   {
@@ -139,17 +138,12 @@ const expertises = [
 ];
 
 export default function Apropos() {
-  useDescription(
-    "Parcours de Kouakou Kouadio Franck : formation, expérience à la Mairie de Port-Bouët depuis 2023 et certifications."
-  );
   useApparition();
   const badges = certifications.filter((c) => c.image);
   const autres = certifications.filter((c) => !c.image);
 
   return (
     <>
-      <title>À propos — Kouakou Kouadio Franck</title>
-
       <section className="entete-sombre">
         <div className="entete-sombre__fond" aria-hidden="true">
           <span className="entete-sombre__halo entete-sombre__halo--1" />

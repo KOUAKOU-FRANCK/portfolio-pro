@@ -5,7 +5,6 @@ import { whatsappLink } from "../data/profile.js";
 import PhotoGallery from "../components/PhotoGallery.jsx";
 import { useApparition } from "../hooks/useApparition.js";
 import "./Photographie.css";
-import { useDescription } from "../hooks/useDescription.js";
 
 const aCompleter = (texte) => !texte || texte.startsWith("À compléter");
 
@@ -13,6 +12,16 @@ const aCompleter = (texte) => !texte || texte.startsWith("À compléter");
 const categoriesPubliees = categories.filter((c) => photosPubliees.some((p) => p.categorie === c));
 const photoEntete = photosPubliees.find((p) => p.vedette) ?? photosPubliees[0];
 const messagePrestation = "Bonjour Franck, je souhaite réserver une prestation photo pour un événement.";
+
+// Ouvre WhatsApp avec un message prérempli, ou la page Contact si aucun numéro n'est renseigné.
+function LienWhatsapp({ message, className, children }) {
+  const href = whatsappLink(message);
+  return href ? (
+    <a href={href} className={className} target="_blank" rel="noopener noreferrer">{children}</a>
+  ) : (
+    <Link to="/contact" className={className}>{children}</Link>
+  );
+}
 
 const Icone = ({ children }) => (
   <svg viewBox="0 0 24 24" aria-hidden="true">{children}</svg>
@@ -24,9 +33,6 @@ const iconesPrestations = [
 ];
 
 export default function Photographie() {
-  useDescription(
-    "Photographe événementiel à Abidjan : mariages, anniversaires, cérémonies, portraits et reportages. Galerie et demande de prestation."
-  );
   const [categorie, setCategorie] = useState("Toutes");
   useApparition([categorie]);
   const filtrees = categorie === "Toutes" ? photosPubliees : photosPubliees.filter((p) => p.categorie === categorie);
@@ -38,8 +44,6 @@ export default function Photographie() {
 
   return (
     <div className="theme-photo">
-      <title>Photographie événementielle — Kouakou Kouadio Franck</title>
-
       <section className="photo-hero">
         {photoEntete && (
           <img className="photo-hero__image" src={photoEntete.src} alt="" width={photoEntete.largeur} height={photoEntete.hauteur} />
@@ -53,9 +57,9 @@ export default function Photographie() {
           </p>
           <div className="photo-hero__actions entree" style={{ "--d": 3 }}>
             <a href="#galerie" className="btn btn--light">Voir la galerie</a>
-            <a href={whatsappLink(messagePrestation)} className="btn btn--ghost-clair" target="_blank" rel="noopener noreferrer">
+            <LienWhatsapp message={messagePrestation} className="btn btn--ghost-clair">
               Demander une prestation
-            </a>
+            </LienWhatsapp>
           </div>
         </div>
       </section>
@@ -94,7 +98,7 @@ export default function Photographie() {
           <h2 className="reveal">Mes prestations</h2>
           <ul className="prestations reveal">
             {prestations.map((p, i) => (
-              <li key={p.titre} className="prestation">
+              <li key={i} className="prestation">
                 <span className="prestation__icone">{iconesPrestations[i % iconesPrestations.length]}</span>
                 <h3>{p.titre}</h3>
                 {!aCompleter(p.texte) && <p>{p.texte}</p>}
@@ -117,23 +121,21 @@ export default function Photographie() {
             <h2 className="reveal">Formules</h2>
             <p className="photo-formules__note reveal">Prix indicatifs, ajustés selon la durée et le lieu de l'événement.</p>
             <ul className="formules reveal">
-              {formules.map((f) => (
-                <li key={f.nom} className="formule">
+              {formules.map((f, i) => (
+                <li key={i} className="formule">
                   <h3>{f.nom}</h3>
                   {f.prix && <p className="formule__prix">{f.prix}</p>}
                   {f.inclus?.length > 0 && (
                     <ul className="formule__inclus">
-                      {f.inclus.map((x) => <li key={x}>{x}</li>)}
+                      {f.inclus.map((x, j) => <li key={j}>{x}</li>)}
                     </ul>
                   )}
-                  <a
-                    href={whatsappLink(`Bonjour Franck, je souhaite un devis pour la formule « ${f.nom} ».`)}
+                  <LienWhatsapp
+                    message={`Bonjour Franck, je souhaite un devis pour la formule « ${f.nom} ».`}
                     className="btn btn--light"
-                    target="_blank"
-                    rel="noopener noreferrer"
                   >
                     Demander un devis
-                  </a>
+                  </LienWhatsapp>
                 </li>
               ))}
             </ul>
@@ -149,9 +151,11 @@ export default function Photographie() {
               <p>Parlez-moi de votre date, du lieu et de vos envies.</p>
             </div>
             <div className="photo-cta__actions">
-              <a href={whatsappLink(messagePrestation)} className="btn btn--light" target="_blank" rel="noopener noreferrer">
-                Écrire sur WhatsApp
-              </a>
+              {whatsappLink(messagePrestation) && (
+                <a href={whatsappLink(messagePrestation)} className="btn btn--light" target="_blank" rel="noopener noreferrer">
+                  Écrire sur WhatsApp
+                </a>
+              )}
               <Link to="/contact" className="btn btn--ghost-clair">Autres moyens de contact</Link>
             </div>
           </div>

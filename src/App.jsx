@@ -9,6 +9,7 @@ import Photographie from "./pages/Photographie.jsx";
 import Apropos from "./pages/Apropos.jsx";
 import Contact from "./pages/Contact.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import { useMetadonnees } from "./hooks/useMetadonnees.js";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -19,6 +20,7 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  useMetadonnees();
   return (
     <>
       <a className="skip-link" href="#contenu">
